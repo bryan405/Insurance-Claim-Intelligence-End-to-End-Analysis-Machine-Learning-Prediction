@@ -9,15 +9,15 @@ End-to-end data science project for insurance claim analysis and prediction usin
 # TABLE OF CONTENT
 
 1. [EXECUTIVE SUMMARY](#executive-summary)
-2. ![BUSINESS CONTEXT](#business-contest)
-3. ![DATASET](#dataset)
-4. ![DASHBOARD](#dashboard)
-5. ![PREDICTIVE MODELING](#predictive-modelling)
-6. ![PREDICTION APP](#prediction-app)
-7. ![RECOMMENDATIONS](#recommendations)
-8. ![RISK OF INACTION](#risk-of-inaction)
-9. ![ROADMAP/NEXTSTEPS](#roadmap/nextsep)
-10. ![APPENDIX](#appendix)
+2. [BUSINESS CONTEXT](#business-contest)
+3. [DATASET](#dataset)
+4. [DASHBOARD](#dashboard)
+5. [PREDICTIVE MODELING](#predictive-modelling)
+6. [PREDICTION APP](#prediction-app)
+7. [RECOMMENDATIONS](#recommendations)
+8. [RISK OF INACTION](#risk-of-inaction)
+9. [ROADMAP/NEXTSTEPS](#roadmap/nextsep)
+10. [APPENDIX](#appendix)
 
 
 1. [EXECUTIVE SUMMARY](#executive-summary)
