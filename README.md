@@ -4,4 +4,4 @@ End-to-end data science project for insurance claim analysis and prediction usin
 # Executive Report  
 **Prepared by:** Emeka Victor Agbo - Data Analyst  
 **Prepared for:** Valuelink, VP of Actuarial & Business Analytics  
-**Date: September** 2, 2026
+**Date:** September 2, 2026
