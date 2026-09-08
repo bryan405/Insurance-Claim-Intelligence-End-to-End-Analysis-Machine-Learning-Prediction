@@ -7,6 +7,7 @@ End-to-end data science project for insurance claim analysis and prediction usin
 **Date:** September 2, 2026
 
 # TABLE OF CONTENT
+
 ![EXECUTIVE SUMMARY](#EXECUTIVE-SUMMARY)
 ![BUSINESS-CONTEXT](#BUSINESS-CONTEXT)
 ![DASHBOARD](#DASHBOARD)
