@@ -37,6 +37,6 @@ In August 2026, the VP of Actuarial & Business Analytics flagged a recurring pro
  #### Structure: (Csv file:1,340 Records)
  #### Data Dictionary: (id,age,gender,children,diabetic,smoker,Bmi,region,)
  
-#### ![Preview of data data Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/model%20view.pdf)
-#### ![Preview of data data Dictionary]
+#### ![Preview of data Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/model%20view.pdf)
+#### ![Preview of dataset](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dataset.pdf)
  
