@@ -26,5 +26,6 @@ This report closes out the four phases requested by the VP of Actuarial & Busine
 ![Click For More Detail](doccument/Executive_Summary.pdf)
 
 2. [BUSINESS CONTEXT](#business-contest)
-3. In August 2026, the VP of Actuarial & Business Analytics flagged a recurring problem: the health insurance division's claims data was reviewed manually, on an ad-hoc basis, with no centralized reporting layer. Regional managers, underwriting, and executive leadership were each pulling their own cuts of the same data independently — duplicating effort and, worse, arriving at inconsistent numbers for the same questions.
-4. ![Click For More Detail](doccument/Business request health insurance analytics.pdf)
+   
+In August 2026, the VP of Actuarial & Business Analytics flagged a recurring problem: the health insurance division's claims data was reviewed manually, on an ad-hoc basis, with no centralized reporting layer. Regional managers, underwriting, and executive leadership were each pulling their own cuts of the same data independently — duplicating effort and, worse, arriving at inconsistent numbers for the same questions.
+![Click For More Detail](doccument/Business request health insurance analytics.pdf)
