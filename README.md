@@ -31,3 +31,9 @@ In August 2026, the VP of Actuarial & Business Analytics flagged a recurring pro
 ![Click For More Detail](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Business%20request%20health%20insurance%20analytics.pdf)
 
 ## [DATASET](#dataset)
+
+ **Dataset & Source:** (Github) 
+ **Collection Method:** (Download)
+ **Structure:** (Csv file:1,340 Records)
+ **Data Dictionary:** (id,age,gender,children,diabetic,smoker,Bmi,region,)
+ 
