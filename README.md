@@ -8,7 +8,7 @@ End-to-end data science project for insurance claim analysis and prediction usin
 
 # TABLE OF CONTENT
 
-1. [EXECUTIVE SUMMARY](#executive-summary)
+# 1. [EXECUTIVE SUMMARY](#executive-summary)
 2. [BUSINESS CONTEXT](#business-context)
 3. [DATASET](#dataset)
 4. [DASHBOARD](#dashboard)
