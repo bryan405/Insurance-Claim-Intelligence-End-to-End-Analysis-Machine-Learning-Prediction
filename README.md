@@ -32,8 +32,8 @@ In August 2026, the VP of Actuarial & Business Analytics flagged a recurring pro
 
 ## [DATASET](#dataset)
 
- **Dataset & Source:** (Github) 
- **Collection Method:** (Download)
- **Structure:** (Csv file:1,340 Records)
- **Data Dictionary:** (id,age,gender,children,diabetic,smoker,Bmi,region,)
+ #### Dataset & Source: (Github) 
+ #### Collection Method: (Download)
+ #### Structure: (Csv file:1,340 Records)
+ #### Data Dictionary: (id,age,gender,children,diabetic,smoker,Bmi,region,)
  
