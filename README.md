@@ -49,7 +49,8 @@ The dashboard is a two-page Power BI report themed to match this document so the
 This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
 ###### click to preview dashboard[https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20preview.pdf]
 
-### KPI                             ### Current Value                             ### What It Tells You                         
-- Total claims                          - $17.75M                                    -Total dollar exposure across all                                                                                                 policyholders in the current filte
-- Average claim                         - $13.33K                                       
-- Total policyholders                   - 1332
+### KPI                              Current Value                              What It Tells You                         
+###### Total claims                          - $17.75M                                    -Total dollar exposure across all                                                                                                 policyholders in the current filte
+###### Average claim                         - $13.33K                                     -Typical payout per policyholder                                      
+###### Total policyholders                   - 1332                                         -Number of policyhoders in the current                                                                                            view
+###### % Smokers / % Diabetic                 - 21% / 48%                                   - Prevalence of the two health risk flags                                                                                          in the book
