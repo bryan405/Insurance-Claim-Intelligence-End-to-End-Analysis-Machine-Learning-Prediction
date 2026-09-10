@@ -48,4 +48,10 @@ The dashboard is a two-page Power BI report themed to match this document so the
 
 This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
 ###### click to preview dashboard[https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20preview.pdf]
+
+- Total claims	$17.75M	Total dollar exposure across all policyholders in the current filter	Movement quarter-over-quarter once trend data is available
+- Average claim	$13.33K	Typical payout per policyholder	Skew — a small number of very high claims can pull this up
+- Total policyholders	1,300	Book size in the current view	Should match the cleaned dataset count (1,332) when no filters are applied
+% Smokers / % Diabetic	21% / 48%	Prevalence of the two health risk flags in the book	% Diabetic is high enough that it's worth validating against source data
+
  
