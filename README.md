@@ -67,5 +67,5 @@ This is the page underwriting, regional managers, and leadership will use day to
 Model MAE   |   $3.75K        |Average dollar miss per prediction|This is the number to quote when someone asks “how wrong is                |                 |                                  |the model, typically”
 Model RMSE  |   $4.90K        |Same idea, but penalizes          |Higher than MAE confirms a handful of large misses, not                                      |big misses more                   |consistent small ones
 Model R²    |   83%           |Share of claim variation the      |Strong for this type of data; leaves room for the misses                   |                 |model explains                    |discussed below
-Under       |                 |                                  |
+Under-      |                 |                                  |
 Predicted % |   61%           |Share of policyholders whose      |The systematic bias flagged in Executive Summary 
