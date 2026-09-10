@@ -54,3 +54,12 @@ This is the page underwriting, regional managers, and leadership will use day to
 ###### Average claim                         - $13.33K                                     -Typical payout per policyholder                                      
 ###### Total policyholders                   - 1332                                         -Number of policyhoders in the current                                                                                            view
 ###### % Smokers / % Diabetic                 - 21% / 48%                                   - Prevalence of the two health risk flags                                                                                          in the book
+
+###### What the segment charts show
+-	Smoker vs. non-smoker average claim: $32K vs. $8K — a 4x gap. This is the strongest single lever in the whole dataset.
+-	Diabetic vs. non-diabetic average claim: $13.4K vs. $13.2K — essentially flat. Worth a second look before treating diabetic status as a standalone pricing factor (see Section 4).
+-	BMI category: the book skews heavy — 702 obese, 387 overweight, 223 normal, 20 underweight policyholders — which matters for how representative this model will be if the population shifts.
+-	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) — driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
+-	Claim by age group: 31–45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
+
+
