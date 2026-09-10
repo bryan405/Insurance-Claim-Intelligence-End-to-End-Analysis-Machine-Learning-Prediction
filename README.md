@@ -45,4 +45,6 @@ In August 2026, the VP of Actuarial & Business Analytics flagged a recurring pro
 The dashboard is a two-page Power BI report themed to match this document so the same visual language carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
 
 ###### Health Insurance Cost and Claim Dashboard
+
+This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
  
