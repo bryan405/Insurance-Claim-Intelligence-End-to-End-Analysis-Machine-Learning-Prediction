@@ -47,5 +47,5 @@ The dashboard is a two-page Power BI report themed to match this document so the
 ###### Health Insurance Cost and Claim Dashboard
 
 This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
-###### ![DashBoard](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20preview.pdf)
+###### click to preview dashboard[https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20preview.pdf]
  
