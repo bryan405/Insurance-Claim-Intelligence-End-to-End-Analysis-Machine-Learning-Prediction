@@ -41,7 +41,7 @@ In August 2026, the VP of Actuarial & Business Analytics flagged a recurring pro
 #### ![Preview of dataset](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dataset.pdf)
 
 #### [DASHBOARD](#dashboard)
-**Power BI Dashboard**
+###### Power BI Dashboard
 The dashboard is a two-page Power BI report themed to match this document so the same visual language carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
 
 ###### Health Insurance Cost and Claim Dashboard
