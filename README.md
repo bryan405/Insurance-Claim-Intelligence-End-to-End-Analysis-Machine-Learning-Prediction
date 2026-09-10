@@ -69,5 +69,4 @@ Model RMSE  |   $4.90K        |Same idea, but penalizes          |Higher than MA
 Model R²    |   83%           |Share of claim variation the      |Strong for this type of data; leaves room for the misses                   |                 |model explains                    |discussed below
 Under       |                 |                                  |
 Predicted % |   61%           |Share of policyholders whose      |The systematic bias flagged in the 
-            |                 |actual claim exceeded the         |Executive Summary - see Recommendations
-------------|-----------------|prediction                        |--------------------------------------------------------------                                
+            |                 |actual claim exceeded the         |Executive Summary - see Recommendations|prediction                      
