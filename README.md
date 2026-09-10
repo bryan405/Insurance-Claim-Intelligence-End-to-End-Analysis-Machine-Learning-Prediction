@@ -68,5 +68,4 @@ Model MAE   |   $3.75K        |Average dollar miss per prediction|This is the nu
 Model RMSE  |   $4.90K        |Same idea, but penalizes          |Higher than MAE confirms a handful of large misses, not                                      |big misses more                   |consistent small ones
 Model R²    |   83%           |Share of claim variation the      |Strong for this type of data; leaves room for the misses                   |                 |model explains                    |discussed below
 Under       |                 |                                  |
-Predicted % |   61%           |Share of policyholders whose      |The systematic bias flagged in the 
-    !       |                 |actual claim exceeded the         |Executive Summary - see Recommendations|prediction                      
+Predicted % |   61%           |Share of policyholders whose      |The systematic bias flagged in Executive Summary 
