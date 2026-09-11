@@ -76,3 +76,5 @@ Under-      |                 |                                  |
 Predicted % |   61%           |Share of policyholders whose      |The systematic bias flagged in Executive Summary 
 
 The **“Where are the biggest misses”** table and the error-by-policyholder line chart both point the same direction: a small set of policyholders - mostly high-cost claim cases - accounts for a disproportionate share of total error, with individual misses as high as $19,563. The “over- vs. under-charging” bar chart confirms the model under-charges noticeably more often than it over-charges.
+
+![predictive Dasboard](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20model.pdf)
