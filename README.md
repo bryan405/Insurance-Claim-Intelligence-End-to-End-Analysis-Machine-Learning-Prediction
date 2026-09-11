@@ -38,32 +38,47 @@ In August 2026, the VP of Actuarial & Business Analytics flagged a recurring pro
  #### Structure: (Csv file:1,340 Records)
  #### Data Dictionary: (id,age,gender,children,diabetic,smoker,Bmi,region,)
 #### ![Preview of data Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/model%20view.pdf)
-##### Data Cleaning & Preparation
+### Data Cleaning & Preparation
 Before anything gets analyzed or modeled, it has to be trustworthy. This document walks through exactly what was done to the raw claims file to get it ready for analysis — what was checked, what was found, what was changed, and why. Nothing here is a judgment call made quietly in the background; every decision below is one a reviewer could re-run and verify.
 
-###### Where we started
+##### Where we started
 The source file (data.csv) contained 1,340 policyholder records across 10 columns: a record ID, three demographic fields (age, gender, number of children), three health-risk fields (BMI, blood pressure, diabetic status), a behavioral field (smoker status), a location field (region), and the target we ultimately want to predict or explain: claim amount.
 
-###### Checking for duplicate records
+##### Checking for duplicate records
 The very first check on any new dataset is whether the same record appears more than once — duplicates silently inflate certain patterns and can make a model look more confident than it should be. A full-row duplicate check came back clean: 0 duplicate rows out of 1,340. Nothing needed to be removed at this step.
 
-###### Finding and handling missing values
+##### Finding and handling missing values
 Next, every column was checked for missing values. Two columns had gaps: age was missing in 5 rows, and region was missing in 3 rows — 8 missing cells in total, spread across 8 rows (no row was missing more than one field).
 Before removing anything, it's worth asking a more careful question: is this missingness spread out, or concentrated in one group? If every missing region happened to belong to smokers, for example, dropping those rows could quietly bias the dataset against that group. Here, the 8 affected rows broke down as 4 in the Northwest, 1 in the Southeast, and the remainder without a usable region - not concentrated in any single segment, and small enough (0.60% of all rows) to drop safely without distorting the population.
 
-###### Data type and structure check
+##### Data type and structure check
 With missing values resolved, each column's data type was confirmed to match what it represents: age, BMI, blood pressure, children, and claim as numeric fields; gender, diabetic status, smoker status, and region as text categories. No type mismatches (e.g., numbers stored as text) were found.
-###### Profiling the cleaned dataset
+##### Profiling the cleaned dataset
 With the data cleaned, a full statistical summary confirms the dataset is sound and gives a first look at its shape:
 Two things stand out even at this early stage. First, claim amount has a very large standard deviation relative to its mean - almost as large as the mean itself - which signals a right-skewed distribution with a long tail of high-cost claims rather than a tidy bell curve. Second, the categorical fields look reasonably balanced: 670 male / 662 female, 1,058 non-smokers / 274 smokers, and a fairly even split of diabetic status. None of this required any correction; it's simply useful context carried forward into the exploratory analysis in Part 2.
-###### Cleaning checklist — summary
--	Duplicate rows checked — 0 found, none removed
--	Missing values identified — 8 cells across age and region
--	Missingness pattern checked for bias — confirmed spread across regions, not concentrated
--	Rows with missing values dropped — 1,340 → 1,332 rows (0.60%)
+##### Cleaning checklist - summary
+-	Duplicate rows checked - 0 found, none removed
+-	Missing values identified - 8 cells across age and region
+-	Missingness pattern checked for bias - confirmed spread across regions, not concentrated
+-	Rows with missing values dropped - 1,340 → 1,332 rows (0.60%)
 -	Zero-missing-values check re-run and passed after cleaning
 -	Data types confirmed correct for every column
 -	Final dataset profiled and confirmed ready for exploratory analysis
+
+### Exploratory Data Analysis
+Exploratory data analysis, or EDA, is the step where an analyst looks at the data with fresh eyes before touching a model — checking what's normal, what's skewed, and which factors actually seem to move the outcome. Everything in this document comes from the 1,332-row cleaned dataset from Part 1. The goal here isn't to prove anything yet; it's to build an honest picture of the data so the modeling choices in Part 3 are informed rather than guessed.
+#### How the individual fields are distributed
+<img width="1180" height="784" alt="imagen" src="https://github.com/user-attachments/assets/760ffe3b-9362-4809-ba4c-63722362c862" />
+Age is fairly evenly spread across the working-age range (18–60), with no unusual gaps. BMI follows a roughly bell-shaped curve centered in the high-20s to low-30s, which is on the higher end of the standard BMI scale. Blood pressure clusters tightly between 80 and 100 with a smaller tail toward 140. Number of children is heavily weighted toward 0 and 1. Claim amount is the one field that doesn't look like the others: it's sharply right-skewed — most policyholders file relatively modest claims, and a smaller group of high-cost cases stretches the tail out past $60,000.
+<img width="1180" height="780" alt="imagen" src="https://github.com/user-attachments/assets/a976327e-10fe-4983-9e9b-69d031d1894d" />
+Gender is close to an even split (670 male / 662 female). Diabetic status is fairly balanced as well, tilted slightly toward non-diabetic. Smoker status is not balanced — only about 1 in 5 policyholders smoke, which matters later because smoking turns out to be the strongest single driver of claim cost. Region is led by Southeast (442 policyholders) and smallest in Northeast (231), which is important context whenever a region-level total is being read — a bigger total in one region can simply mean more policyholders live there, not a higher cost per person.
+#### The single strongest pattern in the data: smoking status
+<img width="723" height="479" alt="imagen" src="https://github.com/user-attachments/assets/1982364f-4848-4bbe-a780-8bbdfbc05816" />
+<img width="599" height="463" alt="imagen" src="https://github.com/user-attachments/assets/ac546345-5ba9-4f13-b839-bd88f2577325" />
+
+Smokers claim roughly four times what non-smokers claim on average ($32K–$33K vs. $8K–$9K), and that gap holds steady across every age band and both genders — there's no point in the age range where non-smokers catch up. Gender itself barely moves the number in either group. Of every factor examined in this analysis, smoking status is the clearest, most consistent signal.
+
+
 
 
 #### [DASHBOARD](#dashboard)
