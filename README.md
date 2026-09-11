@@ -62,9 +62,10 @@ This is the page underwriting, regional managers, and leadership will use day to
 -	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) - driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
 
+[<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" /
+]
 
-[image alt](<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" />
-)                                                    ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/claim%20by%20region.pdf)                                 
+![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/claim%20by%20region.pdf)                                 
 
                                                                                
 
