@@ -10,7 +10,7 @@
 
 1. [EXECUTIVE SUMMARY](#executive-summary)
 2. [BUSINESS CONTEXT](#business-context)
-3. [DATA SOURCE:CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
+3. [DATA SOURCE,CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
 5. [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
 6. [POWER BI DASHBOARD](#power-bi-dashboard)
 7. [PREDICTIVE MODELING](#predictive-modeling)
@@ -31,15 +31,17 @@ This report closes out the four phases requested by the VP of Actuarial & Busine
 In August 2026, the VP of Actuarial & Business Analytics flagged a recurring problem: the health insurance division's claims data was reviewed manually, on an ad-hoc basis, with no centralized reporting layer. Regional managers, underwriting, and executive leadership were each pulling their own cuts of the same data independently - duplicating effort and, worse, arriving at inconsistent numbers for the same questions.
 ![Click For More Detail](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Business%20request%20health%20insurance%20analytics.pdf)
 
-## [DATASET](#dataset)
+## [DATA SOURCE,CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
 
  #### Dataset & Source: (Github) 
  #### Collection Method: (Download)
  #### Structure: (Csv file:1,340 Records)
  #### Data Dictionary: (id,age,gender,children,diabetic,smoker,Bmi,region,)
- 
 #### ![Preview of data Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/model%20view.pdf)
-#### ![Preview of dataset](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dataset.pdf)
+##### Data Cleaning & Preparation
+Before anything gets analyzed or modeled, it has to be trustworthy. This document walks through exactly what was done to the raw claims file to get it ready for analysis — what was checked, what was found, what was changed, and why. Nothing here is a judgment call made quietly in the background; every decision below is one a reviewer could re-run and verify.
+
+###### Where we started
 
 #### [DASHBOARD](#dashboard)
 ###### Power BI Dashboard
