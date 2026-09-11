@@ -62,6 +62,8 @@ This is the page underwriting, regional managers, and leadership will use day to
 -	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) - driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
 
+-	
+
  KPI        |Current value    |         Meaning                  |Business implication
 ------------|-----------------|----------------------------------|----------------------
 Model MAE   |   $3.75K        |Average dollar miss per prediction|This is the number to quote when someone asks “how wrong is                |                 |                                  |the model, typically”
