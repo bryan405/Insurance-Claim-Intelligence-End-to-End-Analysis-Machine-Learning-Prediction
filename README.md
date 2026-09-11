@@ -11,14 +11,14 @@
  1. [EXECUTIVE SUMMARY](#executive-summary)
 2. [BUSINESS CONTEXT](#business-context)
 3. [DATA SOURCE:CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
-4. [POWER BI DASHBOARD](#power-bi-dashboard)
 5. [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
-6. [PREDICTIVE MODELING](#predictive-modeling)
-7. [PREDICTION APP](#prediction-app)
-8. [RECOMMENDATIONS](#recommendations)
-9. [RISK OF INACTION](#risk-of-inaction)
-10. [ROADMAP / NEXT STEPS](#roadmap--next-steps)
-11. [APPENDIX](#appendix)
+6. [POWER BI DASHBOARD](#power-bi-dashboard)
+7. [PREDICTIVE MODELING](#predictive-modeling)
+8. [PREDICTION APP](#prediction-app)
+9. [RECOMMENDATIONS](#recommendations)
+10. [RISK OF INACTION](#risk-of-inaction)
+11. [ROADMAP / NEXT STEPS](#roadmap--next-steps)
+12. [APPENDIX](#appendix)
 
 
 
