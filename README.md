@@ -42,10 +42,34 @@ In August 2026, the VP of Actuarial & Business Analytics flagged a recurring pro
 Before anything gets analyzed or modeled, it has to be trustworthy. This document walks through exactly what was done to the raw claims file to get it ready for analysis — what was checked, what was found, what was changed, and why. Nothing here is a judgment call made quietly in the background; every decision below is one a reviewer could re-run and verify.
 
 ###### Where we started
+The source file (data.csv) contained 1,340 policyholder records across 10 columns: a record ID, three demographic fields (age, gender, number of children), three health-risk fields (BMI, blood pressure, diabetic status), a behavioral field (smoker status), a location field (region), and the target we ultimately want to predict or explain: claim amount.
+
+###### Checking for duplicate records
+The very first check on any new dataset is whether the same record appears more than once — duplicates silently inflate certain patterns and can make a model look more confident than it should be. A full-row duplicate check came back clean: 0 duplicate rows out of 1,340. Nothing needed to be removed at this step.
+
+###### Finding and handling missing values
+Next, every column was checked for missing values. Two columns had gaps: age was missing in 5 rows, and region was missing in 3 rows — 8 missing cells in total, spread across 8 rows (no row was missing more than one field).
+Before removing anything, it's worth asking a more careful question: is this missingness spread out, or concentrated in one group? If every missing region happened to belong to smokers, for example, dropping those rows could quietly bias the dataset against that group. Here, the 8 affected rows broke down as 4 in the Northwest, 1 in the Southeast, and the remainder without a usable region - not concentrated in any single segment, and small enough (0.60% of all rows) to drop safely without distorting the population.
+
+###### Data type and structure check
+With missing values resolved, each column's data type was confirmed to match what it represents: age, BMI, blood pressure, children, and claim as numeric fields; gender, diabetic status, smoker status, and region as text categories. No type mismatches (e.g., numbers stored as text) were found.
+###### Profiling the cleaned dataset
+With the data cleaned, a full statistical summary confirms the dataset is sound and gives a first look at its shape:
+Two things stand out even at this early stage. First, claim amount has a very large standard deviation relative to its mean - almost as large as the mean itself - which signals a right-skewed distribution with a long tail of high-cost claims rather than a tidy bell curve. Second, the categorical fields look reasonably balanced: 670 male / 662 female, 1,058 non-smokers / 274 smokers, and a fairly even split of diabetic status. None of this required any correction; it's simply useful context carried forward into the exploratory analysis in Part 2.
+###### Cleaning checklist — summary
+-	Duplicate rows checked — 0 found, none removed
+-	Missing values identified — 8 cells across age and region
+-	Missingness pattern checked for bias — confirmed spread across regions, not concentrated
+-	Rows with missing values dropped — 1,340 → 1,332 rows (0.60%)
+-	Zero-missing-values check re-run and passed after cleaning
+-	Data types confirmed correct for every column
+-	Final dataset profiled and confirmed ready for exploratory analysis
+
 
 #### [DASHBOARD](#dashboard)
 ###### Power BI Dashboard
 The dashboard is a two-page Power BI report themed to match this document so the same visual language carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
+
 
 ###### Health Insurance Cost and Claim Dashboard
 
