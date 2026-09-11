@@ -61,11 +61,13 @@ This is the page underwriting, regional managers, and leadership will use day to
 -	BMI category: the book skews heavy - 702 obese, 387 overweight, 223 normal, 20 underweight policyholders - which matters for how representative this model will be if the population shifts.
 -	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) - driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
--	
+
 
 [image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/claim%20by%20age.pdf)                                                    ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/claim%20by%20region.pdf)                                 
 
                                                                                
+
+
 
 
  KPI        |Current value    |         Meaning                  |Business implication
