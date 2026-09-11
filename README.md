@@ -64,15 +64,9 @@ This is the page underwriting, regional managers, and leadership will use day to
 
 <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" />                                             <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/1b4b4254-81ad-4de2-970c-4e21fd0e7c1a" />
 
-
-
                                
-
-                                                                               
-
-
-
-
+   ### Prediction Accuracy & Model Performance
+   
  KPI        |Current value    |         Meaning                  |Business implication
 ------------|-----------------|----------------------------------|----------------------
 Model MAE   |   $3.75K        |Average dollar miss per prediction|This is the number to quote when someone asks “how wrong is                |                 |                                  |the model, typically”
@@ -80,3 +74,5 @@ Model RMSE  |   $4.90K        |Same idea, but penalizes          |Higher than MA
 Model R²    |   83%           |Share of claim variation the      |Strong for this type of data; leaves room for the misses                   |                 |model explains                    |discussed below
 Under-      |                 |                                  |
 Predicted % |   61%           |Share of policyholders whose      |The systematic bias flagged in Executive Summary 
+
+The **“Where are the biggest misses”** table and the error-by-policyholder line chart both point the same direction: a small set of policyholders - mostly high-cost claim cases - accounts for a disproportionate share of total error, with individual misses as high as $19,563. The “over- vs. under-charging” bar chart confirms the model under-charges noticeably more often than it over-charges.
