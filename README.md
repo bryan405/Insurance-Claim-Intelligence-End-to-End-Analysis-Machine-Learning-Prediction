@@ -78,3 +78,6 @@ Predicted % |   61%           |Share of policyholders whose      |The systematic
 The **“Where are the biggest misses”** table and the error-by-policyholder line chart both point the same direction: a small set of policyholders - mostly high-cost claim cases - accounts for a disproportionate share of total error, with individual misses as high as $19,563. The “over- vs. under-charging” bar chart confirms the model under-charges noticeably more often than it over-charges.
 
 ![predictive Dasboard](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20model.pdf)
+
+##### Behind the dashboard: supporting exploratory visualizations
+The charts below are drawn straight from the underlying Python analysis. They don't sit inside the live Power BI report, but they back up several of the KPIs and callouts above and add detail the dashboard's fixed layout doesn't have room for.
