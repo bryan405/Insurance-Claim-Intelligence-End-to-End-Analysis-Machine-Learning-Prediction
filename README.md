@@ -72,7 +72,8 @@ Exploratory data analysis, or EDA, is the step where an analyst looks at the dat
 Age is fairly evenly spread across the working-age range (18–60), with no unusual gaps. BMI follows a roughly bell-shaped curve centered in the high-20s to low-30s, which is on the higher end of the standard BMI scale. Blood pressure clusters tightly between 80 and 100 with a smaller tail toward 140. Number of children is heavily weighted toward 0 and 1. Claim amount is the one field that doesn't look like the others: it's sharply right-skewed — most policyholders file relatively modest claims, and a smaller group of high-cost cases stretches the tail out past $60,000.
 <img width="1180" height="780" alt="imagen" src="https://github.com/user-attachments/assets/a976327e-10fe-4983-9e9b-69d031d1894d" />
 Gender is close to an even split (670 male / 662 female). Diabetic status is fairly balanced as well, tilted slightly toward non-diabetic. Smoker status is not balanced — only about 1 in 5 policyholders smoke, which matters later because smoking turns out to be the strongest single driver of claim cost. Region is led by Southeast (442 policyholders) and smallest in Northeast (231), which is important context whenever a region-level total is being read — a bigger total in one region can simply mean more policyholders live there, not a higher cost per person.
-#### he single strongest pattern in the data: smoking status
+
+#### The single strongest pattern in the data: smoking status
 <img width="723" height="479" alt="imagen" src="https://github.com/user-attachments/assets/1982364f-4848-4bbe-a780-8bbdfbc05816" />
 <img width="599" height="463" alt="imagen" src="https://github.com/user-attachments/assets/ac546345-5ba9-4f13-b839-bd88f2577325" />
 
