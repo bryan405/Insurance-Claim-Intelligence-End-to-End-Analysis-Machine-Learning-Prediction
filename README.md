@@ -8,7 +8,7 @@
 
 # TABLE OF CONTENT
 
- 1. [EXECUTIVE SUMMARY](#executive-summary)
+1. [EXECUTIVE SUMMARY](#executive-summary)
 2. [BUSINESS CONTEXT](#business-context)
 3. [DATA SOURCE:CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
 5. [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
