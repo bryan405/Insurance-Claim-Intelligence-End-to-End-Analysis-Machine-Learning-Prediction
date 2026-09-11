@@ -63,7 +63,8 @@ This is the page underwriting, regional managers, and leadership will use day to
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
 
 
-[image alt](folder/claim by age.pdf)                                                    ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/claim%20by%20region.pdf)                                 
+[image alt](<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" />
+)                                                    ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/claim%20by%20region.pdf)                                 
 
                                                                                
 
