@@ -47,16 +47,16 @@ The source file (data.csv) contained 1,340 policyholder records across 10 column
 ##### Checking for duplicate records
 The very first check on any new dataset is whether the same record appears more than once — duplicates silently inflate certain patterns and can make a model look more confident than it should be. A full-row duplicate check came back clean: 0 duplicate rows out of 1,340. Nothing needed to be removed at this step.
 
-##### Finding and handling missing values
+#### Finding and handling missing values
 Next, every column was checked for missing values. Two columns had gaps: age was missing in 5 rows, and region was missing in 3 rows — 8 missing cells in total, spread across 8 rows (no row was missing more than one field).
 Before removing anything, it's worth asking a more careful question: is this missingness spread out, or concentrated in one group? If every missing region happened to belong to smokers, for example, dropping those rows could quietly bias the dataset against that group. Here, the 8 affected rows broke down as 4 in the Northwest, 1 in the Southeast, and the remainder without a usable region - not concentrated in any single segment, and small enough (0.60% of all rows) to drop safely without distorting the population.
 
-##### Data type and structure check
+#### Data type and structure check
 With missing values resolved, each column's data type was confirmed to match what it represents: age, BMI, blood pressure, children, and claim as numeric fields; gender, diabetic status, smoker status, and region as text categories. No type mismatches (e.g., numbers stored as text) were found.
-##### Profiling the cleaned dataset
+#### Profiling the cleaned dataset
 With the data cleaned, a full statistical summary confirms the dataset is sound and gives a first look at its shape:
 Two things stand out even at this early stage. First, claim amount has a very large standard deviation relative to its mean - almost as large as the mean itself - which signals a right-skewed distribution with a long tail of high-cost claims rather than a tidy bell curve. Second, the categorical fields look reasonably balanced: 670 male / 662 female, 1,058 non-smokers / 274 smokers, and a fairly even split of diabetic status. None of this required any correction; it's simply useful context carried forward into the exploratory analysis in Part 2.
-##### Cleaning checklist - summary
+#### Cleaning checklist - summary
 -	Duplicate rows checked - 0 found, none removed
 -	Missing values identified - 8 cells across age and region
 -	Missingness pattern checked for bias - confirmed spread across regions, not concentrated
@@ -65,7 +65,7 @@ Two things stand out even at this early stage. First, claim amount has a very la
 -	Data types confirmed correct for every column
 -	Final dataset profiled and confirmed ready for exploratory analysis
 
-  #### ![Click To See Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/01_data_cleaning.pdf)
+#### ![Click To See Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/01_data_cleaning.pdf)
 
 ##  [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
 Exploratory data analysis, or EDA, is the step where an analyst looks at the data with fresh eyes before touching a model — checking what's normal, what's skewed, and which factors actually seem to move the outcome. Everything in this document comes from the 1,332-row cleaned dataset from Part 1. The goal here isn't to prove anything yet; it's to build an honest picture of the data so the modeling choices in Part 3 are informed rather than guessed.
@@ -83,7 +83,7 @@ Smokers claim roughly four times what non-smokers claim on average ($32K–$33K 
 
 #### ![Click here to see Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/EDA.pdf)
 
-##### What this analysis set up for the modeling stage
+#### What this analysis set up for the modeling stage
 -	Smoking status is the dominant predictor and should be treated as such in feature engineering — including interaction terms for models that can't detect interactions on their own.
 -	Blood pressure deserves more weight than the original project scope implied - its correlation with claim (0.53) outranks BMI (0.20).
 -	BMI matters, but gradually, and especially for the risk of an expensive outlier rather than the typical case.
@@ -91,17 +91,17 @@ Smokers claim roughly four times what non-smokers claim on average ($32K–$33K 
 -	Region differences mostly reflect population size, not true differences in per-person cost, and should be interpreted carefully.
 
 
-#### [DASHBOARD](#dashboard)
+## [DASHBOARD](#dashboard)
 
 
-###### Power BI Dashboard
+#### Power BI Dashboard
 The dashboard is a two-page Power BI report themed to match this document so the same visual language carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
 
 
-###### Health Insurance Cost and Claim Dashboard
+#### Health Insurance Cost and Claim Dashboard
 
 This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
-###### click to preview dashboard[https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20preview.pdf]
+#### click to preview dashboard[https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20preview.pdf]
 
 ### KPI,                              Current Value,                              What It Tells You                         
 ###### Total claims                          - $17.75M                                    -Total dollar exposure across all                                                                                                 policyholders in the current filte
@@ -121,23 +121,23 @@ This is the page underwriting, regional managers, and leadership will use day to
 
 ### [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
 This part covers turning that understanding into a model that predicts claim cost, and packaging that model into an application a non-technical user can actually operate. As with the earlier documents, every choice below has a stated reason  nothing here was done just because it's the default setting.
-##### Choosing the features
+#### Choosing the features
 Eight fields go into the model: age, gender, BMI, blood pressure, diabetic status, number of children, smoker status, and region. The record ID was excluded — it identifies a row, it doesn't describe a policyholder, so including it would let the model “learn” meaningless noise tied to row order.
-##### Encoding the categorical fields
+#### Encoding the categorical fields
 Models need numbers, not text, so every category had to be converted - but not all in the same way, because the fields aren't all the same kind of category.
 One detail worth explaining for the non-technical reader: one-hot encoding for region creates a separate 0/1 column per region, but one region (Northeast) was deliberately left out of the final feature set. This is standard practice, not an oversight — if all four region columns were included, they would always add up to exactly 1, which creates a redundancy that confuses some models. Dropping one column loses no information: a policyholder who is 0 in Northwest, Southeast, and Southwest is understood to be in Northeast by elimination.
-##### Engineering two interaction features
+#### Engineering two interaction features
 The exploratory analysis in Part 2 found that smoking status and BMI both affect claims, and that flexible models like Random Forest and XGBoost can detect combined effects (e.g., “smoking matters more at higher BMI”) on their own. Straight-line models like Linear and Polynomial Regression cannot discover that kind of interaction by themselves - they need it handed to them as an explicit input. So two new features were built specifically for the linear-family models:
 -	smoker × bmi - lets a linear model represent “being a smoker matters differently depending on BMI” rather than treating the two as fully independent effects
 -	diabetic × bmi - same logic, applied to diabetic status and BMI
 
- ##### Splitting the data - and why it's a three-way split
+ #### Splitting the data - and why it's a three-way split
 The 1,332 cleaned records were split three ways: 60% for training (798 rows), 20% for validation (267 rows), and 20% for final testing (267 rows), using a fixed random seed (42) so the split is reproducible
- ##### Why not just train/test?
+ #### Why not just train/test?
  A simple two-way split tempts an analyst into repeatedly checking test-set performance while tuning a model — and every time you adjust a model based on test results, the test set stops being a fair, untouched judge of real-world performance. The validation set is where all the tuning and model-picking decisions happen. The test set is opened exactly once, at the very end, purely to report a final, honest number. This is standard practice for any model whose results will inform real financial decisions.
-##### Scaling the numeric fields
+#### Scaling the numeric fields
 Age, BMI, blood pressure, and number of children were standardized (rescaled to a common range) using a scaler fit only on the training data, then applied unchanged to the validation and test sets. Fitting the scaler on training data only - rather than on the whole dataset before splitting - prevents information from the validation and test sets from quietly leaking into training, which would make the model look better than it really is. One model (Support Vector Regression) also required the target value itself to be scaled, since that algorithm is sensitive to the size of the numbers it's predicting; its predictions were converted back into real dollar amounts before being scored, so its reported accuracy is on the same footing as every other model.
-##### Training and comparing five models
+#### Training and comparing five models
 Five modeling approaches were trained and tuned, each searched over a grid of settings using 5-fold cross-validation on the training data, then compared on the untouched validation set:
 
 
