@@ -65,7 +65,7 @@ Two things stand out even at this early stage. First, claim amount has a very la
 -	Data types confirmed correct for every column
 -	Final dataset profiled and confirmed ready for exploratory analysis
 
-  #### ![Click To See Queries](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/01_data_cleaning.pdf)
+  #### ![Click To See Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/01_data_cleaning.pdf)
 
 ### Exploratory Data Analysis
 Exploratory data analysis, or EDA, is the step where an analyst looks at the data with fresh eyes before touching a model — checking what's normal, what's skewed, and which factors actually seem to move the outcome. Everything in this document comes from the 1,332-row cleaned dataset from Part 1. The goal here isn't to prove anything yet; it's to build an honest picture of the data so the modeling choices in Part 3 are informed rather than guessed.
@@ -81,10 +81,19 @@ Gender is close to an even split (670 male / 662 female). Diabetic status is fai
 
 Smokers claim roughly four times what non-smokers claim on average ($32K–$33K vs. $8K–$9K), and that gap holds steady across every age band and both genders — there's no point in the age range where non-smokers catch up. Gender itself barely moves the number in either group. Of every factor examined in this analysis, smoking status is the clearest, most consistent signal.
 
+#### ![Click here to see Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/EDA.pdf)
 
+##### What this analysis set up for the modeling stage
+-	Smoking status is the dominant predictor and should be treated as such in feature engineering — including interaction terms for models that can't detect interactions on their own.
+-	Blood pressure deserves more weight than the original project scope implied - its correlation with claim (0.53) outranks BMI (0.20).
+-	BMI matters, but gradually, and especially for the risk of an expensive outlier rather than the typical case.
+-	Diabetic status is a weak standalone predictor in this dataset — worth testing as an interaction term rather than dropping outright.
+-	Region differences mostly reflect population size, not true differences in per-person cost, and should be interpreted carefully.
 
 
 #### [DASHBOARD](#dashboard)
+
+
 ###### Power BI Dashboard
 The dashboard is a two-page Power BI report themed to match this document so the same visual language carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
 
