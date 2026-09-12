@@ -13,7 +13,7 @@
 3. [DATA SOURCE,CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
 5. [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
 6. [POWER BI DASHBOARD](#power-bi-dashboard)
-7. [PREDICTIVE MODELING](#predictive-modeling)
+7. [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
 8. [PREDICTION APP](#prediction-app)
 9. [RECOMMENDATIONS](#recommendations)
 10. [RISK OF INACTION](#risk-of-inaction)
@@ -67,7 +67,7 @@ Two things stand out even at this early stage. First, claim amount has a very la
 
   #### ![Click To See Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/01_data_cleaning.pdf)
 
-### Exploratory Data Analysis
+##  [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
 Exploratory data analysis, or EDA, is the step where an analyst looks at the data with fresh eyes before touching a model — checking what's normal, what's skewed, and which factors actually seem to move the outcome. Everything in this document comes from the 1,332-row cleaned dataset from Part 1. The goal here isn't to prove anything yet; it's to build an honest picture of the data so the modeling choices in Part 3 are informed rather than guessed.
 #### How the individual fields are distributed
 <img width="1180" height="784" alt="imagen" src="https://github.com/user-attachments/assets/760ffe3b-9362-4809-ba4c-63722362c862" />
@@ -117,6 +117,29 @@ This is the page underwriting, regional managers, and leadership will use day to
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
 
 <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" />                                             <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/1b4b4254-81ad-4de2-970c-4e21fd0e7c1a" />
+
+
+### [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
+This part covers turning that understanding into a model that predicts claim cost, and packaging that model into an application a non-technical user can actually operate. As with the earlier documents, every choice below has a stated reason  nothing here was done just because it's the default setting.
+##### Choosing the features
+Eight fields go into the model: age, gender, BMI, blood pressure, diabetic status, number of children, smoker status, and region. The record ID was excluded — it identifies a row, it doesn't describe a policyholder, so including it would let the model “learn” meaningless noise tied to row order.
+##### Encoding the categorical fields
+Models need numbers, not text, so every category had to be converted - but not all in the same way, because the fields aren't all the same kind of category.
+One detail worth explaining for the non-technical reader: one-hot encoding for region creates a separate 0/1 column per region, but one region (Northeast) was deliberately left out of the final feature set. This is standard practice, not an oversight — if all four region columns were included, they would always add up to exactly 1, which creates a redundancy that confuses some models. Dropping one column loses no information: a policyholder who is 0 in Northwest, Southeast, and Southwest is understood to be in Northeast by elimination.
+##### Engineering two interaction features
+The exploratory analysis in Part 2 found that smoking status and BMI both affect claims, and that flexible models like Random Forest and XGBoost can detect combined effects (e.g., “smoking matters more at higher BMI”) on their own. Straight-line models like Linear and Polynomial Regression cannot discover that kind of interaction by themselves - they need it handed to them as an explicit input. So two new features were built specifically for the linear-family models:
+-	smoker × bmi - lets a linear model represent “being a smoker matters differently depending on BMI” rather than treating the two as fully independent effects
+-	diabetic × bmi - same logic, applied to diabetic status and BMI
+
+ ##### Splitting the data - and why it's a three-way split
+The 1,332 cleaned records were split three ways: 60% for training (798 rows), 20% for validation (267 rows), and 20% for final testing (267 rows), using a fixed random seed (42) so the split is reproducible
+ ##### Why not just train/test?
+ A simple two-way split tempts an analyst into repeatedly checking test-set performance while tuning a model — and every time you adjust a model based on test results, the test set stops being a fair, untouched judge of real-world performance. The validation set is where all the tuning and model-picking decisions happen. The test set is opened exactly once, at the very end, purely to report a final, honest number. This is standard practice for any model whose results will inform real financial decisions.
+##### Scaling the numeric fields
+Age, BMI, blood pressure, and number of children were standardized (rescaled to a common range) using a scaler fit only on the training data, then applied unchanged to the validation and test sets. Fitting the scaler on training data only - rather than on the whole dataset before splitting - prevents information from the validation and test sets from quietly leaking into training, which would make the model look better than it really is. One model (Support Vector Regression) also required the target value itself to be scaled, since that algorithm is sensitive to the size of the numbers it's predicting; its predictions were converted back into real dollar amounts before being scored, so its reported accuracy is on the same footing as every other model.
+##### Training and comparing five models
+Five modeling approaches were trained and tuned, each searched over a grid of settings using 5-fold cross-validation on the training data, then compared on the untouched validation set:
+
 
                                
    ### Prediction Accuracy & Model Performance
