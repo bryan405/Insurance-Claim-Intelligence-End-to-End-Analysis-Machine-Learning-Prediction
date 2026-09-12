@@ -65,6 +65,8 @@ Two things stand out even at this early stage. First, claim amount has a very la
 -	Data types confirmed correct for every column
 -	Final dataset profiled and confirmed ready for exploratory analysis
 
+  #### ![Click To See Queries](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/cleaning%20Copy1.pdf)
+
 ### Exploratory Data Analysis
 Exploratory data analysis, or EDA, is the step where an analyst looks at the data with fresh eyes before touching a model — checking what's normal, what's skewed, and which factors actually seem to move the outcome. Everything in this document comes from the 1,332-row cleaned dataset from Part 1. The goal here isn't to prove anything yet; it's to build an honest picture of the data so the modeling choices in Part 3 are informed rather than guessed.
 #### How the individual fields are distributed
