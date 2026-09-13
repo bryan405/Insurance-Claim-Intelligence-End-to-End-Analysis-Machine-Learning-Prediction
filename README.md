@@ -144,6 +144,7 @@ Five modeling approaches were trained and tuned, each searched over a grid of se
 
 #### The validation leaderboard — where the winner was picked
 XGBoost had the best validation R² (0.79) and the lowest average error, and its 5-fold cross-validation score (0.80) was consistent with its validation performance — a good sign it isn't just a lucky split. XGBoost was selected as the production model.
+#### ![See Validation Table](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Table_Validation_Leaderboard.pdf)
 
 #### The one-time test-set result
 In plain language: the model explains about 83% of why claim amounts differ from one policyholder to the next, and its typical prediction is within roughly $3,751 of the actual claim. As documented in Part 2 and in the Visualization & Analytics section of the master report, this accuracy isn't evenly spread — the model is more likely to under-predict than over-predict, particularly for high-cost policyholders.
