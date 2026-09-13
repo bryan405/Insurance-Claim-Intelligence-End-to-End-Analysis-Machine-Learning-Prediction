@@ -138,10 +138,9 @@ The 1,332 cleaned records were split three ways: 60% for training (798 rows), 20
  A simple two-way split tempts an analyst into repeatedly checking test-set performance while tuning a model — and every time you adjust a model based on test results, the test set stops being a fair, untouched judge of real-world performance. The validation set is where all the tuning and model-picking decisions happen. The test set is opened exactly once, at the very end, purely to report a final, honest number. This is standard practice for any model whose results will inform real financial decisions.
 #### Scaling the numeric fields
 Age, BMI, blood pressure, and number of children were standardized (rescaled to a common range) using a scaler fit only on the training data, then applied unchanged to the validation and test sets. Fitting the scaler on training data only - rather than on the whole dataset before splitting - prevents information from the validation and test sets from quietly leaking into training, which would make the model look better than it really is. One model (Support Vector Regression) also required the target value itself to be scaled, since that algorithm is sensitive to the size of the numbers it's predicting; its predictions were converted back into real dollar amounts before being scored, so its reported accuracy is on the same footing as every other model.
-#### Training and comparing five models and validation
+#### Training and comparing five models
 Five modeling approaches were trained and tuned, each searched over a grid of settings using 5-fold cross-validation on the training data, then compared on the untouched validation set:
-### ![click for Prediction Accuracy & Model Performance](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Testing_comparing_validation.pdf)
-
+### ![comparing the models](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Testing_comparing_validation.pdf)
 
 ### ![Prediction Dasboard](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20model.pdf)
 
