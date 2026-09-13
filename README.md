@@ -154,7 +154,7 @@ In plain language: the model explains about 83% of why claim amounts differ from
 
 ##### Behind the dashboard: supporting exploratory visualizations
 The charts above are drawn straight from the underlying Python analysis. They don't sit inside the live Power BI report, but they back up several of the KPIs and callouts above and add detail the dashboard's fixed layout doesn't have room for.
-https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/eng%20code.jpg
+<https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/eng%20code.jpg>
 
 
 
