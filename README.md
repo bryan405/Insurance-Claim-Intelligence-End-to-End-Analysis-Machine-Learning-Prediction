@@ -169,3 +169,13 @@ https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Mac
 
 
 
+
+
+
+
+
+https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Modern%20%20Redesign.png
+
+
+
+
