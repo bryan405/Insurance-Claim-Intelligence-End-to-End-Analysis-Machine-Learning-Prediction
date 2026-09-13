@@ -153,4 +153,15 @@ In plain language: the model explains about 83% of why claim amounts differ from
 ### ![Prediction Dasboard](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20model.pdf)
 
 ##### Behind the dashboard: supporting exploratory visualizations
-The charts below are drawn straight from the underlying Python analysis. They don't sit inside the live Power BI report, but they back up several of the KPIs and callouts above and add detail the dashboard's fixed layout doesn't have room for.
+The charts above are drawn straight from the underlying Python analysis. They don't sit inside the live Power BI report, but they back up several of the KPIs and callouts above and add detail the dashboard's fixed layout doesn't have room for.
+
+
+## The application: turning the model into a usable tool
+The final deliverable is a small web application that lets someone with no data science background enter a policyholder's details and get a claim estimate. It's built with Streamlit, a Python framework designed specifically for turning a script into an interactive web page without writing any HTML, CSS, or JavaScript.
+#### Libraries used, and what each one is for
+
+#### What the interface looks like and how it's laid out
+
+
+
+
