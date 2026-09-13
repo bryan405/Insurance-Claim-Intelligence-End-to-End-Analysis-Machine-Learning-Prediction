@@ -164,7 +164,7 @@ The final deliverable is a small web application that lets someone with no data 
 
 
 
-
+https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Modern%20%20Redesign.png
 
 
 
