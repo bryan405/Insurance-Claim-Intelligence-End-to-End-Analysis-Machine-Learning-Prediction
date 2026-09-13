@@ -162,7 +162,7 @@ The final deliverable is a small web application that lets someone with no data 
 #### Libraries used, and what each one is for
 #### ![View Libraries used](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Table_App_Libraries.pdf) 
 
-<folder/Modern  Redesign.png>
+https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Modern%20%20Redesign.png
 
 #### ![Watch How To Use The Apph](ttps://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Modern%20Page%20Redesign.mp4)
 
