@@ -126,7 +126,7 @@ Eight fields go into the model: age, gender, BMI, blood pressure, diabetic statu
 #### Encoding the categorical fields
 Models need numbers, not text, so every category had to be converted - but not all in the same way, because the fields aren't all the same kind of category.
 One detail worth explaining for the non-technical reader: one-hot encoding for region creates a separate 0/1 column per region, but one region (Northeast) was deliberately left out of the final feature set. This is standard practice, not an oversight — if all four region columns were included, they would always add up to exactly 1, which creates a redundancy that confuses some models. Dropping one column loses no information: a policyholder who is 0 in Northwest, Southeast, and Southwest is understood to be in Northeast by elimination.
-#### ![preview categorical fields](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Table_Encoding_Strategy.pdf)
+#### ![Preview categorical fields](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Table_Encoding_Strategy.pdf)
 #### Engineering two interaction features
 The exploratory analysis in Part 2 found that smoking status and BMI both affect claims, and that flexible models like Random Forest and XGBoost can detect combined effects (e.g., “smoking matters more at higher BMI”) on their own. Straight-line models like Linear and Polynomial Regression cannot discover that kind of interaction by themselves - they need it handed to them as an explicit input. So two new features were built specifically for the linear-family models:
 -	smoker × bmi - lets a linear model represent “being a smoker matters differently depending on BMI” rather than treating the two as fully independent effects
@@ -140,7 +140,13 @@ The 1,332 cleaned records were split three ways: 60% for training (798 rows), 20
 Age, BMI, blood pressure, and number of children were standardized (rescaled to a common range) using a scaler fit only on the training data, then applied unchanged to the validation and test sets. Fitting the scaler on training data only - rather than on the whole dataset before splitting - prevents information from the validation and test sets from quietly leaking into training, which would make the model look better than it really is. One model (Support Vector Regression) also required the target value itself to be scaled, since that algorithm is sensitive to the size of the numbers it's predicting; its predictions were converted back into real dollar amounts before being scored, so its reported accuracy is on the same footing as every other model.
 #### Training and comparing five models
 Five modeling approaches were trained and tuned, each searched over a grid of settings using 5-fold cross-validation on the training data, then compared on the untouched validation set:
-### ![comparing the models](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Testing_comparing_validation.pdf)
+#### ![Comparing the models](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Testing_comparing_validation.pdf)
+
+#### The validation leaderboard — where the winner was picked
+XGBoost had the best validation R² (0.79) and the lowest average error, and its 5-fold cross-validation score (0.80) was consistent with its validation performance — a good sign it isn't just a lucky split. XGBoost was selected as the production model.
+
+#### The one-time test-set result
+In plain language: the model explains about 83% of why claim amounts differ from one policyholder to the next, and its typical prediction is within roughly $3,751 of the actual claim. As documented in Part 2 and in the Visualization & Analytics section of the master report, this accuracy isn't evenly spread — the model is more likely to under-predict than over-predict, particularly for high-cost policyholders.
 
 ### ![Prediction Dasboard](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20model.pdf)
 
