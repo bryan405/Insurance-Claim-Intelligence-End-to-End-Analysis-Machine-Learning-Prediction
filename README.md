@@ -117,8 +117,11 @@ This is the page underwriting, regional managers, and leadership will use day to
 <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" /> 
 
 -	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) - driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
+-	
 <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/1b4b4254-81ad-4de2-970c-4e21fd0e7c1a" />
+
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
+-	
 
 
 
@@ -153,7 +156,7 @@ XGBoost had the best validation R² (0.79) and the lowest average error, and its
 In plain language: the model explains about 83% of why claim amounts differ from one policyholder to the next, and its typical prediction is within roughly $3,751 of the actual claim. As documented in Part 2 and in the Visualization & Analytics section of the master report, this accuracy isn't evenly spread — the model is more likely to under-predict than over-predict, particularly for high-cost policyholders.
 #### ![See The Final Test](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Table_Final_Test_Metrics.pdf)
 
-### ![Prediction Dasboard](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/dashboard%20model.pdf)
+![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/994e2f08085051fb89e5315bd0d0bafcd2c93bb1/folder/model%20dashb.png)
 
 ##### Behind the dashboard: supporting exploratory visualizations
 The charts above are drawn straight from the underlying Python analysis. They don't sit inside the live Power BI report, but they back up several of the KPIs and callouts above and add detail the dashboard's fixed layout doesn't have room for.
