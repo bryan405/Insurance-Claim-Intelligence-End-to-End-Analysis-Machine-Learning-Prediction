@@ -170,7 +170,7 @@ The charts above are drawn straight from the underlying Python analysis. They do
 ### Turning the model into a usable tool App
 The final deliverable is a small web application that lets someone with no data science background enter a policyholder's details and get a claim estimate. It's built with Streamlit, a Python framework designed specifically for turning a script into an interactive web page without writing any HTML, CSS, or JavaScript.
 #### Libraries used, and what each one is for
- ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/6daf5428123831cc7daa51379f5c2e7fea32290a/folder/Table_App_Libraries.pdf)
+#### [preview](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/6daf5428123831cc7daa51379f5c2e7fea32290a/folder/Table_App_Libraries.pdf)
 ## What the interface looks like 
 ![preview app](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/499d6ad0d2d6bccd569add6ae277701a7530d073/folder/Modern%20%20Redesign.png)
 
