@@ -113,10 +113,12 @@ This is the page underwriting, regional managers, and leadership will use day to
 -	Smoker vs. non-smoker average claim: $32K vs. $8K - a 4x gap. This is the strongest single lever in the whole dataset.
 -	Diabetic vs. non-diabetic average claim: $13.4K vs. $13.2K - essentially flat. Worth a second look before treating diabetic status as a standalone pricing factor (see Section 4).
 -	BMI category: the book skews heavy - 702 obese, 387 overweight, 223 normal, 20 underweight policyholders - which matters for how representative this model will be if the population shifts.
--	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) - driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
 
-<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" />                                             <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/1b4b4254-81ad-4de2-970c-4e21fd0e7c1a" />
+<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" /> 
+
+-	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) - driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
+<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/1b4b4254-81ad-4de2-970c-4e21fd0e7c1a" />
 
 
 ### [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
