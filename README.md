@@ -11,7 +11,7 @@
 1. [EXECUTIVE SUMMARY](#executive-summary)
 2. [BUSINESS CONTEXT](#business-context)
 3. [DATA SOURCE,CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
-5. [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
+5. [EXPLORATORY ANALYSIS IN PYTHON](#exploratory-analysis-iñ-python)
 6. [POWER BI DASHBOARD](#power-bi-dashboard)
 7. [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
 8. [PREDICTION APP](#prediction-app)
@@ -67,7 +67,7 @@ Two things stand out even at this early stage. First, claim amount has a very la
 
 #### ![Click To See Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/01_data_cleaning.pdf)
 
-##  [EXPLORATORY ANALYSIS IN PYTHON](#Exploratory-analysis-iñ-python)
+##  [EXPLORATORY ANALYSIS IN PYTHON](#exploratory-analysis-iñ-python)
 Exploratory data analysis, or EDA, is the step where an analyst looks at the data with fresh eyes before touching a model — checking what's normal, what's skewed, and which factors actually seem to move the outcome. Everything in this document comes from the 1,332-row cleaned dataset from Part 1. The goal here isn't to prove anything yet; it's to build an honest picture of the data so the modeling choices in Part 3 are informed rather than guessed.
 #### How the individual fields are distributed
 <img width="1180" height="784" alt="imagen" src="https://github.com/user-attachments/assets/760ffe3b-9362-4809-ba4c-63722362c862" />
@@ -125,7 +125,7 @@ This is the page underwriting, regional managers, and leadership will use day to
 
 
 
-### [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
+## [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
 This part covers turning that understanding into a model that predicts claim cost, and packaging that model into an application a non-technical user can actually operate. As with the earlier documents, every choice below has a stated reason  nothing here was done just because it's the default setting.
 #### Choosing the features
 Eight fields go into the model: age, gender, BMI, blood pressure, diabetic status, number of children, smoker status, and region. The record ID was excluded — it identifies a row, it doesn't describe a policyholder, so including it would let the model “learn” meaningless noise tied to row order.
