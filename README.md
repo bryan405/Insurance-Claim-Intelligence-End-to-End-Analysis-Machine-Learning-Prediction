@@ -173,11 +173,10 @@ The final deliverable is a small web application that lets someone with no data 
  ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/6daf5428123831cc7daa51379f5c2e7fea32290a/folder/Table_App_Libraries.pdf)
 ## What the interface looks like 
 
-![copy to preview the video](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/788b9dbcfe479288bdfa71e3bd556966e7d5e3e0/folder/mp4.mp4)
+### [Download the video](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/788b9dbcfe479288bdfa71e3bd556966e7d5e3e0/folder/mp4.mp4)
 
 
 
-#### ![Watch How To Use The App](ttps://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Modern%20Page%20Redesign.mp4)
 
 
 
