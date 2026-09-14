@@ -166,8 +166,8 @@ The charts above are drawn straight from the underlying Python analysis. They do
 #### preview Quary
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/9ab9294ee53c49c8b20d580a33317dd9ea831d4a/folder/eng%20code%201.png)
 
-
-## The application: turning the model into a usable tool
+##  [PREDICTION APP](#prediction-app)
+### Turning the model into a usable tool App
 The final deliverable is a small web application that lets someone with no data science background enter a policyholder's details and get a claim estimate. It's built with Streamlit, a Python framework designed specifically for turning a script into an interactive web page without writing any HTML, CSS, or JavaScript.
 #### Libraries used, and what each one is for
  ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/6daf5428123831cc7daa51379f5c2e7fea32290a/folder/Table_App_Libraries.pdf)
