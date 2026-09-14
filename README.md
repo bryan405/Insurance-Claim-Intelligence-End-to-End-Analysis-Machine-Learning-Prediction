@@ -84,7 +84,7 @@ Smokers claim roughly four times what non-smokers claim on average ($32K–$33K 
 #### ![Click here to see Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/EDA.pdf)
 
 #### What this analysis set up for the modeling stage
--	Smoking status is the dominant predictor and should be treated as such in feature engineering — including interaction terms for models that can't detect interactions on their own.
+-	Smoking status is the dominant predictor and should be treated as such in feature engineering — including interaction terms for models that can't detect  interactions on their own.
 -	Blood pressure deserves more weight than the original project scope implied - its correlation with claim (0.53) outranks BMI (0.20).
 -	BMI matters, but gradually, and especially for the risk of an expensive outlier rather than the typical case.
 -	Diabetic status is a weak standalone predictor in this dataset — worth testing as an interaction term rather than dropping outright.
