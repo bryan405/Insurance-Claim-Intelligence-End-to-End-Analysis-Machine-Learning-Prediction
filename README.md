@@ -160,6 +160,8 @@ In plain language: the model explains about 83% of why claim amounts differ from
 
 ##### Behind the dashboard: supporting exploratory visualizations
 The charts above are drawn straight from the underlying Python analysis. They don't sit inside the live Power BI report, but they back up several of the KPIs and callouts above and add detail the dashboard's fixed layout doesn't have room for.
+#### preview Quary
+![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/994e2f08085051fb89e5315bd0d0bafcd2c93bb1/folder/eng%20code%201.png)
 
 
 ## The application: turning the model into a usable tool
@@ -173,7 +175,7 @@ The final deliverable is a small web application that lets someone with no data 
 
 
 
-#### ![Watch How To Use The Apph](ttps://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Modern%20Page%20Redesign.mp4)
+#### ![Watch How To Use The App](ttps://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Modern%20Page%20Redesign.mp4)
 
 
 
