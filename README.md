@@ -101,7 +101,7 @@ The dashboard is a two-page Power BI report themed to match this document so the
 #### Health Insurance Cost and Claim Dashboard
 
 This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/42b2007a64da696b8670e1fac283e1f1607bd281/folder/dasboard.png)
+![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/3a12c43d893d314a1424f87c8cda38d37691ccfa/folder/dashboard.png)
 ##### Behind the dashboard: supporting exploratory visualizations
 The charts above are drawn straight from the underlying Python analysis. they back up several of the KPIs and callouts above and add detail.
 ### KPI,                              Current Value,                              What It Tells You                         
