@@ -16,7 +16,6 @@
 7. [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
 8. [PREDICTION APP](#prediction-app)
 9. [RECOMMENDATIONS](#recommendations)
-10. [RISK OF INACTION](#risk-of-inaction)
 11. [ROADMAP / NEXT STEPS](#roadmap--next-steps)
 12. [APPENDIX](#appendix)
 
@@ -184,6 +183,8 @@ Every range is capped to what the model actually learned from - the app won't ac
 -	Keeps every prediction consistent with how the model was trained, because it reuses the exact saved encoders and scaler rather than re-implementing that logic by hand.
 -	Gives a realistic range, not false precision, which is more useful and more honest for a business decision than a bare number.
 -	Runs on a lightweight, widely-used stack (Streamlit + pandas + numpy + joblib), which keeps it easy for another analyst to maintain or extend.
+
+## [RECOMMENDATIONS](#recommendations)
 
 
 
