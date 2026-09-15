@@ -160,7 +160,7 @@ XGBoost had the best validation R² (0.79) and the lowest average error, and its
 The model explains about 83% of why claim amounts differ from one policyholder to the next, and its typical prediction is within roughly $3,751 of the actual claim. As documented in Part 2 and in the Visualization & Analytics section of the master report, this accuracy isn't evenly spread - the model is more likely to under-predict than over-predict, particularly for high-cost policyholders.
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/30495fb906675db86a9e441777ebebd28c50f3d8/folder/final%20test.png)
 
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/994e2f08085051fb89e5315bd0d0bafcd2c93bb1/folder/model%20dashb.png)
+![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4489bf5bb694f933c60ee3ef32bd043b0e3b93d4/folder/dashboard%20predict.png)
 
 
 #### preview Quary
