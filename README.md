@@ -122,7 +122,7 @@ The charts above are drawn straight from the underlying Python analysis. they ba
 <img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/1b4b4254-81ad-4de2-970c-4e21fd0e7c1a" />
 
 -	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
--	
+	
 
 
 
