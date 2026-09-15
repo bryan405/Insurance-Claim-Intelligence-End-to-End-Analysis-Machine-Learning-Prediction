@@ -95,7 +95,7 @@ Smokers claim roughly four times what non-smokers claim on average ($32K–$33K 
 
 
 #### Power BI Dashboard
-The dashboard is a two-page Power BI report themed to match this document so the same visual language carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
+The dashboard is a two-page Power BI report themed to match this document so the same visual carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
 
 
 #### Health Insurance Cost and Claim Dashboard
@@ -103,7 +103,7 @@ The dashboard is a two-page Power BI report themed to match this document so the
 This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/3a12c43d893d314a1424f87c8cda38d37691ccfa/folder/dashboard.png)
 ##### Behind the dashboard: supporting exploratory visualizations
-The charts above are drawn straight from the underlying Python analysis. they back up several of the KPIs and callouts above and add detail.
+The charts above are drawn straight from the underlying Python analysis and power bi dax calculations. they back up several of the KPIs and callouts above and add detail.
 ### KPI,                              Current Value,                              What It Tells You                         
 ###### Total claims                          - $17.75M                                    -Total dollar exposure across all                                                                                                 policyholders in the current filte
 ###### Average claim                         - $13.33K                                     -Typical payout per policyholder                                      
@@ -136,7 +136,7 @@ One detail worth explaining for the non-technical reader: one-hot encoding for r
 
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/bc036d682e8f30aa64a125afd095fa36ba813fd2/folder/encoding%20strategy.png)
 #### Engineering two interaction features
-The exploratory analysis in Part 2 found that smoking status and BMI both affect claims, and that flexible models like Random Forest and XGBoost can detect combined effects (e.g., “smoking matters more at higher BMI”) on their own. Straight-line models like Linear and Polynomial Regression cannot discover that kind of interaction by themselves - they need it handed to them as an explicit input. So two new features were built specifically for the linear-family models:
+The exploratory analysis in section 2 found that smoking status and BMI both affect claims, and that flexible models like Random Forest and XGBoost can detect combined effects (e.g., “smoking matters more at higher BMI”) on their own. Straight-line models like Linear and Polynomial Regression cannot discover that kind of interaction by themselves - they need it handed to them as an explicit input. So two new features were built specifically for the linear-family models:
 -	smoker × bmi - lets a linear model represent “being a smoker matters differently depending on BMI” rather than treating the two as fully independent effects
 -	diabetic × bmi - same logic, applied to diabetic status and BMI
 
