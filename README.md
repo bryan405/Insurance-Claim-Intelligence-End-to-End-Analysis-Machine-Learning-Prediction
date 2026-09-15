@@ -164,7 +164,7 @@ The model explains about 83% of why claim amounts differ from one policyholder t
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4489bf5bb694f933c60ee3ef32bd043b0e3b93d4/folder/dashboard%20predict.png)
 
 
-#### preview Quary
+#### Preview Quary
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/9ab9294ee53c49c8b20d580a33317dd9ea831d4a/folder/eng%20code%201.png)
 
 ##  [PREDICTION APP](#prediction-app)
@@ -175,7 +175,7 @@ The final deliverable is a small web application that lets someone with no data 
 ## What the interface looks like 
 ![preview app](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/499d6ad0d2d6bccd569add6ae277701a7530d073/folder/Modern%20%20Redesign.png)
 
-### [Download the app video](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/788b9dbcfe479288bdfa71e3bd556966e7d5e3e0/folder/mp4.mp4)
+### [Download The App Video](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/788b9dbcfe479288bdfa71e3bd556966e7d5e3e0/folder/mp4.mp4)
 The page opens with a title and a one-line instruction, followed by a single form split into two columns so every field is visible without scrolling
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/3725f59f23e6b00bbb31b26bb2d164c52d29d421/folder/Table_App_Input_Fields1.png)
 Every range is capped to what the model actually learned from - the app won't accept a BMI of 5 or a fifth region, because the model has no reliable basis for predicting outside the data it was trained on. That's a deliberate safety rail, not a missing feature.
