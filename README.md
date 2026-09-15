@@ -186,6 +186,9 @@ Every range is capped to what the model actually learned from - the app won't ac
 -	Gives a realistic range, not false precision, which is more useful and more honest for a business decision than a bare number.
 -	Runs on a lightweight, widely-used stack (Streamlit + pandas + numpy + joblib), which keeps it easy for another analyst to maintain or extend.
 
+  #### Preview Query.
+  ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/f6c746484eb3a0b80beac9d1d5137623869efe4b/folder/eng%20code.jpg)
+
 ## [RECOMMENDATIONS](#recommendations)
 
 
