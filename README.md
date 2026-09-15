@@ -179,6 +179,11 @@ The page opens with a title and a one-line instruction, followed by a single for
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/3725f59f23e6b00bbb31b26bb2d164c52d29d421/folder/Table_App_Input_Fields1.png)
 Every range is capped to what the model actually learned from - the app won't accept a BMI of 5 or a fifth region, because the model has no reliable basis for predicting outside the data it was trained on. That's a deliberate safety rail, not a missing feature.
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/9e3407854432e5fc81539f3877022fc6ed080fd4/folder/Table_Prediction_Steps1.png)
+#### Why this app matters
+-	Removes the bottleneck of a non-technical user needing an analyst to run a one-off prediction — the original business request's central ask.
+-	Keeps every prediction consistent with how the model was trained, because it reuses the exact saved encoders and scaler rather than re-implementing that logic by hand.
+-	Gives a realistic range, not false precision, which is more useful and more honest for a business decision than a bare number.
+-	Runs on a lightweight, widely-used stack (Streamlit + pandas + numpy + joblib), which keeps it easy for another analyst to maintain or extend.
 
 
 
