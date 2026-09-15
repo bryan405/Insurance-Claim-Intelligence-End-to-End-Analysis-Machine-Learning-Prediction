@@ -178,7 +178,7 @@ The final deliverable is a small web application that lets someone with no data 
 The page opens with a title and a one-line instruction, followed by a single form split into two columns so every field is visible without scrolling
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/3725f59f23e6b00bbb31b26bb2d164c52d29d421/folder/Table_App_Input_Fields1.png)
 Every range is capped to what the model actually learned from - the app won't accept a BMI of 5 or a fifth region, because the model has no reliable basis for predicting outside the data it was trained on. That's a deliberate safety rail, not a missing feature.
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/aef5d9f1b404da46bbd835cd0e4d8fb8297fddf8/folder/Table_App_Input_Fields1.png)
+![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/9e3407854432e5fc81539f3877022fc6ed080fd4/folder/Table_Prediction_Steps1.png)
 
 
 
