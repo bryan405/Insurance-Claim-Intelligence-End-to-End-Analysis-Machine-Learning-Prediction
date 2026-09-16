@@ -16,7 +16,7 @@
 7. [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
 8. [PREDICTION APP](#prediction-app)
 9. [RECOMMENDATIONS](#recommendations)
-11. [ROADMAP / NEXT STEPS](#roadmap--next-steps)
+11. [NEXT STEPS](#next-steps)
 12. [APPENDIX](#appendix)
 
 
@@ -192,6 +192,7 @@ Every range is capped to what the model actually learned from - the app won't ac
 ## [RECOMMENDATIONS](#recommendations)
 The table below show the business inights,recommendation ,reasons and department responsible 
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/032083a833c5647d663a8d10981e8a06de60d8f1/folder/recommendation.png)
+##  [NEXT STEPS](#next-steps)
 
 
 
