@@ -80,7 +80,7 @@ Gender is close to an even split (670 male / 662 female). Diabetic status is fai
 
 Smokers claim roughly four times what non-smokers claim on average ($32K–$33K vs. $8K–$9K), and that gap holds steady across every age band and both genders — there's no point in the age range where non-smokers catch up. Gender itself barely moves the number in either group. Of every factor examined in this analysis, smoking status is the clearest, most consistent signal.
 
-#### ![Click here to see Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/EDA.pdf)
+#### ![Click Here to See More Analysis](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/EDA.pdf)
 
 #### What this analysis set up for the modeling stage
 -	Smoking status is the dominant predictor and should be treated as such in feature engineering — including interaction terms for models that can't detect  interactions on their own.
