@@ -190,6 +190,8 @@ Every range is capped to what the model actually learned from - the app won't ac
   ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/f6c746484eb3a0b80beac9d1d5137623869efe4b/folder/eng%20code.jpg)
 
 ## [RECOMMENDATIONS](#recommendations)
+The table below show the business inights,recommendation ,reasons and department responsible 
+![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/032083a833c5647d663a8d10981e8a06de60d8f1/folder/recommendation.png)
 
 
 
