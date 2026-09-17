@@ -156,7 +156,7 @@ XGBoost had the best validation R² (0.79) and the lowest average error, and its
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4631e3001ae7550d4da199115427382e89c58f9b/folder/validation.png)
 
 #### The test result
-The model explains about 83% of why claim amounts differ from one policyholder to the next, and its typical prediction is within roughly $3,751 of the actual claim. As documented in Part 2 and in the Visualization & Analytics section of the master report, this accuracy isn't evenly spread - the model is more likely to under-predict than over-predict, particularly for high-cost policyholders.
+The model explains about 83% of why claim amounts differ from one policyholder to the next, and its typical prediction is within roughly $3,751 of the actual claim. As documented  in the Visualization & Analytics section of the master report, this accuracy isn't evenly spread - the model is more likely to under-predict than over-predict, particularly for high-cost policyholders.
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/30495fb906675db86a9e441777ebebd28c50f3d8/folder/final%20test.png)
 
 ## Prediction Dashboard
@@ -181,7 +181,7 @@ The page opens with a title and a one-line instruction, followed by a single for
 Every range is capped to what the model actually learned from - the app won't accept a BMI of 5 or a fifth region, because the model has no reliable basis for predicting outside the data it was trained on. That's a deliberate safety rail, not a missing feature.
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/9e3407854432e5fc81539f3877022fc6ed080fd4/folder/Table_Prediction_Steps1.png)
 #### Why this app matters
--	Removes the bottleneck of a non-technical user needing an analyst to run a one-off prediction — the original business request's central ask.
+-	Removes the bottleneck of a non-technical user needing an analyst to run a one-off prediction - the original business request's central ask.
 -	Keeps every prediction consistent with how the model was trained, because it reuses the exact saved encoders and scaler rather than re-implementing that logic by hand.
 -	Gives a realistic range, not false precision, which is more useful and more honest for a business decision than a bare number.
 -	Runs on a lightweight, widely-used stack (Streamlit + pandas + numpy + joblib), which keeps it easy for another analyst to maintain or extend.
@@ -205,9 +205,9 @@ Added after the deeper exploratory-analysis pass (see the EDA technical document
 [Saved Files](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/1c2ba1a6f10f39f92c37ef46ae84d301801b0870/folder/Appendix_Table_Saved_Artifacts.pdf)
 #### Companion documents
 This report is the document sets produced for this project. Alongside the 9-part master report you're reading now, a separate three-part technical documentation set covers the underlying analysis in full code-level detail, for anyone who needs to reproduce, audit, or extend the work:
-●	Part 1 - Data Cleaning & Preparation: duplicate and missing-value checks, and the reasoning behind each decision
-●	Part 2 - Exploratory Data Analysis and power bi dax calculation: every chart behind the findings in this report, including the correlation heatmap 
-●	Part 3 - Feature Engineering, Predictive Modeling & the Application: encoding choices, the full model leaderboard, and a step-by-step walkthrough of the prediction app.
+-	Part 1 - Data Cleaning & Preparation: duplicate and missing-value checks, and the reasoning behind each decision
+-	Part 2 - Exploratory Data Analysis and power bi dax calculation: every chart behind the findings in this report, including the correlation heatmap 
+-	Part 3 - Feature Engineering, Predictive Modeling & the Application: encoding choices, the full model leaderboard, and a step-by-step walkthrough of the prediction app.
 
 
 
