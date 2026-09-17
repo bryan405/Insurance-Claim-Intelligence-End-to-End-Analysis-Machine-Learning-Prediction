@@ -196,6 +196,7 @@ The table below show the business inights,recommendation ,reasons and department
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/f75501352853b75edc072596436ee2c9dc5745a0/folder/next%20line.png)
 
  [APPENDIX](#appendix)
+ #### Data dictionary
 
 
 
