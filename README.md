@@ -202,7 +202,12 @@ The table below show the business inights,recommendation ,reasons and department
 Added after the deeper exploratory-analysis pass (see the EDA technical documentation for the full heatmap). This ranks the numeric predictors by linear relationship strength with claim amount, independent of the modeling algorithm used.
 [Preview Correlation Here](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/946966d91ff524f25d2ac2d3233a881e999ff9af/folder/Appendix_Table_Correlation_with_Claim_Amount.pdf)
 #### Saved artifacts (what powers the app)
-[Saved Files]
+[Saved Files](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/1c2ba1a6f10f39f92c37ef46ae84d301801b0870/folder/Appendix_Table_Saved_Artifacts.pdf)
+#### . Companion documents
+This report is the document sets produced for this project. Alongside the 9-part master report you're reading now, a separate three-part technical documentation set covers the underlying analysis in full code-level detail, for anyone who needs to reproduce, audit, or extend the work:
+●	Part 1 - Data Cleaning & Preparation: duplicate and missing-value checks, and the reasoning behind each decision
+●	Part 2 - Exploratory Data Analysis and power bi dax calculation: every chart behind the findings in this report, including the correlation heatmap 
+●	Part 3 - Feature Engineering, Predictive Modeling & the Application: encoding choices, the full model leaderboard, and a step-by-step walkthrough of the prediction app.
 
 
 
