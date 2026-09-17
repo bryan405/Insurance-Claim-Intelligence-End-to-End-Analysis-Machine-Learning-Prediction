@@ -195,9 +195,12 @@ The table below show the business inights,recommendation ,reasons and department
 ##  [NEXT STEPS](#next-steps)
 ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/f75501352853b75edc072596436ee2c9dc5745a0/folder/next%20line.png)
 
- [APPENDIX](#appendix)
- #### Data dictionary
- ####[View Table Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4e3e72684aa6dffa27ede528670f013181794101/folder/Appendix_Table_Data_Dictionary.pdf)
+## [APPENDIX](#appendix)
+#### Data dictionary
+#### [View Table Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4e3e72684aa6dffa27ede528670f013181794101/folder/Appendix_Table_Data_Dictionary.pdf)
+#### Correlation of numeric fields with claim amount
+Added after the deeper exploratory-analysis pass (see the EDA technical documentation for the full heatmap). This ranks the numeric predictors by linear relationship strength with claim amount, independent of the modeling algorithm used.
+ 
 
 
 
