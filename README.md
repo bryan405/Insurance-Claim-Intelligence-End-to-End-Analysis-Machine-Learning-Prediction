@@ -203,7 +203,7 @@ Added after the deeper exploratory-analysis pass (see the EDA technical document
 [Preview Correlation Here](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/946966d91ff524f25d2ac2d3233a881e999ff9af/folder/Appendix_Table_Correlation_with_Claim_Amount.pdf)
 #### Saved artifacts (what powers the app)
 [Saved Files](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/1c2ba1a6f10f39f92c37ef46ae84d301801b0870/folder/Appendix_Table_Saved_Artifacts.pdf)
-#### . Companion documents
+#### Companion documents
 This report is the document sets produced for this project. Alongside the 9-part master report you're reading now, a separate three-part technical documentation set covers the underlying analysis in full code-level detail, for anyone who needs to reproduce, audit, or extend the work:
 ●	Part 1 - Data Cleaning & Preparation: duplicate and missing-value checks, and the reasoning behind each decision
 ●	Part 2 - Exploratory Data Analysis and power bi dax calculation: every chart behind the findings in this report, including the correlation heatmap 
