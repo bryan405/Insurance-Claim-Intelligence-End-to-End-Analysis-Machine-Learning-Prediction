@@ -208,6 +208,7 @@ This report is the document sets produced for this project. Alongside the 9-part
 -	Part 1 - Data Cleaning & Preparation: duplicate and missing-value checks, and the reasoning behind each decision
 -	Part 2 - Exploratory Data Analysis and power bi dax calculation: every chart behind the findings in this report, including the correlation heatmap 
 -	Part 3 - Feature Engineering, Predictive Modeling & the Application: encoding choices, the full model leaderboard, and a step-by-step walkthrough of the prediction app.
+-	part 4 - Recommendation,answers the business questions and next line of action.
 
 
 
