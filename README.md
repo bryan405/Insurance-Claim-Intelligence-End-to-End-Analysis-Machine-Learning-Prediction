@@ -1,225 +1,131 @@
-**Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction**
-**End-to-end data science project for insurance claim analysis and prediction using machine learning.**
+# Insurance Claim Intelligence
 
-## Executive Report 
-**Prepared by:** Emeka Victor Agbo - Senior Data Analyst  
-**Prepared for:** Valuelink, VP of Actuarial & Business Analytics  
-**Date:** September 2, 2026
+End-to-end analysis and machine learning prediction of health insurance claim costs, from raw data to a Power BI dashboard and a Streamlit app.
 
-# TABLE OF CONTENT
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 
-1. [EXECUTIVE SUMMARY](#executive-summary)
-2. [BUSINESS CONTEXT](#business-context)
-3. [DATA SOURCE,CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
-5. [EXPLORATORY ANALYSIS IN PYTHON](#exploratory-analysis-iñ-python)
-6. [POWER BI DASHBOARD](#power-bi-dashboard)
-7. [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling)
-8. [PREDICTION APP](#prediction-app)
-9. [RECOMMENDATIONS](#recommendations)
-11. [NEXT STEPS](#next-steps)
-12. [APPENDIX](#appendix)
+![Power BI dashboard showing claim totals and segment breakdowns](images/dashboard-overview.png)
 
+## Key results
 
+| Policyholders | Total claims | Average claim | Best test R² | Test MAE |
+|:---:|:---:|:---:|:---:|:---:|
+| 1,332 | $17.75M | $13.33K | 0.81 (XGBoost) | $3,906 |
 
-## [EXECUTIVE SUMMARY](#executive-summary)
-This report closes out the four phases requested by the VP of Actuarial & Business Analytics in August 2026: a cleaned and governed claims dataset, a self-service Power BI dashboard, a validated predictive model, and a prediction tool underwriters can use without analyst support. The short version: the data is in good shape, the dashboard is live, the model is accurate enough to support pricing conversations, and it has one systematic bias that Finance should know about before it's used to set reserves.
-![Click For More Detail](doccument/Executive_Summary.pdf)
+- **Smoking is the strongest driver found:** smokers average $30.7K to $33.0K per claim by gender, non-smokers $8.2K to $8.8K.
+- **Blood pressure has the strongest numeric correlation** with claim amount (0.53), ahead of BMI (0.20). Age shows almost none (-0.03).
+- **Northeast has the highest average claim** ($16.9K) and the highest share of smokers (about 29%). Southeast has the largest total ($5.8M).
 
-## [BUSINESS CONTEXT](#business-context)
-   
-In August 2026, the VP of Actuarial & Business Analytics flagged a recurring problem: the health insurance division's claims data was reviewed manually, on an ad-hoc basis, with no centralized reporting layer. Regional managers, underwriting, and executive leadership were each pulling their own cuts of the same data independently - duplicating effort and, worse, arriving at inconsistent numbers for the same questions.
-![Click For More Detail](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Business%20request%20health%20insurance%20analytics.pdf)
+## Contents
 
-## [DATA SOURCE,CLEANING & PREPARATION](#data-source-cleaning-&-preparation)
+- [Business problem](#business-problem)
+- [Data](#data)
+- [Approach](#approach)
+- [Model performance](#model-performance)
+- [Prediction app](#prediction-app)
+- [Repository structure](#repository-structure)
+- [Limitations and next steps](#limitations-and-next-steps)
+- [Author](#author)
 
- #### Dataset & Source: (Github) 
- #### Collection Method: (Download)
- #### Structure: (Csv file:1,340 Records)
- #### Data Dictionary: (id,age,gender,children,diabetic,smoker,Bmi,region,)
-#### ![Preview of data Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/model%20view.pdf)
-### Data Cleaning & Preparation
-Before anything gets analyzed or modeled, it has to be trustworthy. This document walks through exactly what was done to the raw claims file to get it ready for analysis — what was checked, what was found, what was changed, and why. Nothing here is a judgment call made quietly in the background; every decision below is one a reviewer could re-run and verify.
+## Business problem
 
-##### Where we started
-The source file (data.csv) contained 1,340 policyholder records across 10 columns: a record ID, three demographic fields (age, gender, number of children), three health-risk fields (BMI, blood pressure, diabetic status), a behavioral field (smoker status), a location field (region), and the target we ultimately want to predict or explain: claim amount.
+> This is a practice project. Valuelink is a fictional company name used for the business scenario.
 
-##### Checking for duplicate records
-The very first check on any new dataset is whether the same record appears more than once - duplicates silently inflate certain patterns and can make a model look more confident than it should be. A full-row duplicate check came back clean: 0 duplicate rows out of 1,340. Nothing needed to be removed at this step.
+Claims data was reviewed manually, with no central reporting. Teams pulled separate cuts and reached inconsistent figures. The goal was a governed dataset, a self-service dashboard, a predictive model and a tool for non-technical users.
 
-#### Finding and handling missing values
-Next, every column was checked for missing values. Two columns had gaps: age was missing in 5 rows, and region was missing in 3 rows — 8 missing cells in total, spread across 8 rows (no row was missing more than one field).
-Before removing anything, it's worth asking a more careful question: is this missingness spread out, or concentrated in one group? If every missing region happened to belong to smokers, for example, dropping those rows could quietly bias the dataset against that group. Here, the 8 affected rows broke down as 4 in the Northwest, 1 in the Southeast, and the remainder without a usable region - not concentrated in any single segment, and small enough (0.60% of all rows) to drop safely without distorting the population.
+[Business request](reports/business-request.pdf) · [Executive summary](reports/executive-summary.pdf)
 
-#### Data type and structure check
-With missing values resolved, each column's data type was confirmed to match what it represents: age, BMI, blood pressure, children, and claim as numeric fields; gender, diabetic status, smoker status, and region as text categories. No type mismatches (e.g., numbers stored as text) were found.
-#### Profiling the cleaned dataset
-With the data cleaned, a full statistical summary confirms the dataset is sound and gives a first look at its shape:
-Two things stand out even at this early stage. First, claim amount has a very large standard deviation relative to its mean - almost as large as the mean itself - which signals a right-skewed distribution with a long tail of high-cost claims rather than a tidy bell curve. Second, the categorical fields look reasonably balanced: 670 male / 662 female, 1,058 non-smokers / 274 smokers, and a fairly even split of diabetic status. None of this required any correction; it's simply useful context carried forward into the exploratory analysis in Part 2.
-#### Cleaning checklist - summary
--	Duplicate rows checked - 0 found, none removed
--	Missing values identified - 8 cells across age and region
--	Missingness pattern checked for bias - confirmed spread across regions, not concentrated
--	Rows with missing values dropped - 1,340 → 1,332 rows (0.60%)
--	Zero-missing-values check re-run and passed after cleaning
--	Data types confirmed correct for every column
--	Final dataset profiled and confirmed ready for exploratory analysis
+## Data
 
-#### ![Click To See Query](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/01_data_cleaning.pdf)
+The source file has 1,340 records and 10 columns.
 
-## [EXPLORATORY ANALYSIS IN PYTHON](#exploratory-analysis-iñ-python)
-Exploratory data analysis, or EDA, is the step where an analyst looks at the data with fresh eyes before touching a model - checking what's normal, what's skewed, and which factors actually seem to move the outcome. Everything in this document comes from the 1,332-row cleaned dataset from above section. The goal here isn't to prove anything yet; it's to build an honest picture of the data so the modeling choices in section 3 are informed rather than guessed.
-#### How the individual fields are distributed
-<img width="1180" height="784" alt="imagen" src="https://github.com/user-attachments/assets/760ffe3b-9362-4809-ba4c-63722362c862" />
-Age is fairly evenly spread across the working-age range (18-60), with no unusual gaps. BMI follows a roughly bell-shaped curve centered in the high-20s to low-30s, which is on the higher end of the standard BMI scale. Blood pressure clusters tightly between 80 and 100 with a smaller tail toward 140. Number of children is heavily weighted toward 0 and 1. Claim amount is the one field that doesn't look like the others: it's sharply right-skewed - most policyholders file relatively modest claims, and a smaller group of high-cost cases stretches the tail out past $60,000.
-<img width="1180" height="780" alt="imagen" src="https://github.com/user-attachments/assets/a976327e-10fe-4983-9e9b-69d031d1894d" />
-Gender is close to an even split (670 male / 662 female). Diabetic status is fairly balanced as well, tilted slightly toward non-diabetic. Smoker status is not balanced - only about 1 in 5 policyholders smoke, which matters later because smoking turns out to be the strongest single driver of claim cost. Region is led by Southeast (442 policyholders) and smallest in Northeast (231), which is important context whenever a region-level total is being read - a bigger total in one region can simply mean more policyholders live there, not a higher cost per person.
+| Field | Description |
+|---|---|
+| `Id` | Record identifier (not used by the model) |
+| `age` | Age in years |
+| `gender` | Male or female |
+| `bmi` | Body mass index |
+| `bloodpressure` | Blood pressure reading |
+| `diabetic` | Yes or no |
+| `children` | Number of children |
+| `smoker` | Yes or no |
+| `region` | Northeast, Northwest, Southeast or Southwest |
+| `claim` | Claim amount in dollars (target) |
 
-#### The single strongest pattern in the data: smoking status
-<img width="723" height="479" alt="imagen" src="https://github.com/user-attachments/assets/1982364f-4848-4bbe-a780-8bbdfbc05816" />
-<img width="599" height="463" alt="imagen" src="https://github.com/user-attachments/assets/ac546345-5ba9-4f13-b839-bd88f2577325" />
+**Cleaning:** no duplicates were found. Eight rows with a missing `age` or `region` were removed, leaving 1,332.
 
-Smokers claim roughly four times what non-smokers claim on average ($32K–$33K vs. $8K–$9K), and that gap holds steady across every age band and both genders — there's no point in the age range where non-smokers catch up. Gender itself barely moves the number in either group. Of every factor examined in this analysis, smoking status is the clearest, most consistent signal.
+[Cleaning code](reports/data-cleaning.pdf) · [Data dictionary](reports/data-dictionary.pdf)
 
-#### ![Click Here to See More Analysis](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/EDA.pdf)
+## Approach
 
-#### What this analysis set up for the modeling stage
--	Smoking status is the dominant predictor and should be treated as such in feature engineering — including interaction terms for models that can't detect  interactions on their own.
--	Blood pressure deserves more weight than the original project scope implied - its correlation with claim (0.53) outranks BMI (0.20).
--	BMI matters, but gradually, and especially for the risk of an expensive outlier rather than the typical case.
--	Diabetic status is a weak standalone predictor in this dataset — worth testing as an interaction term rather than dropping outright.
--	Region differences mostly reflect population size, not true differences in per-person cost, and should be interpreted carefully.
+1. Remove rows with missing values and check for duplicates.
+2. Explore distributions, correlations and cost drivers.
+3. Build the Power BI dashboard.
+4. Label-encode `gender`, `diabetic` and `smoker`.
+5. Split the data 80/20 (1,065 training and 267 test rows) and scale numeric fields using the training data.
+6. Compare five models, tuning Random Forest, SVR and XGBoost with 3-fold cross-validation.
+7. Save the best model for use in an app.
 
+The model uses seven inputs: age, gender, BMI, blood pressure, diabetic status, children and smoker status. `region` is analyzed but not used by this model.
 
-## [POWER BI DASHBOARD](#power-bi-dashboard)
+[Analysis notebook (HTML export, download to view)](notebooks/analysis.html)
 
+To run the code you need `data.csv`, which is not included here. Install the libraries with `pip install -r requirements.txt`.
 
-#### Power BI Dashboard
-The dashboard is a two-page Power BI report themed to match this document so the same visual carries from the live report into this write-up. Page 1 is the business-facing overview; Page 2 is a model-monitoring page built for the analytics team to keep an eye on the predictive model in production.
+## Model performance
 
+Test set results from the analysis notebook:
 
-#### Health Insurance Cost and Claim Dashboard
+| Model | R² | MAE | RMSE |
+|---|---:|---:|---:|
+| **XGBoost (selected)** | **0.81** | **$3,906** | **$5,433** |
+| Random Forest | 0.79 | $3,964 | $5,584 |
+| Polynomial Regression (degree 3) | 0.76 | $4,355 | $6,045 |
+| Linear Regression | 0.69 | $5,147 | $6,814 |
+| Support Vector Regression | 0.51 | $5,715 | $8,595 |
 
-This is the page underwriting, regional managers, and leadership will use day to day. It answers the core questions from the business request: how much are we paying out, who is driving it, and how does that break down by region, age, smoking, and health risk factors.
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/3a12c43d893d314a1424f87c8cda38d37691ccfa/folder/dashboard.png)
-##### Behind the dashboard: supporting exploratory visualizations
-The charts above are drawn straight from the underlying Python analysis and power bi dax calculations. they back up several of the KPIs and callouts above and add detail.
-### KPI,                              Current Value,                              What It Tells You                         
-###### Total claims                          - $17.75M                                    -Total dollar exposure across all                                                                                                 policyholders in the current filte
-###### Average claim                         - $13.33K                                     -Typical payout per policyholder                                      
-###### Total policyholders                   - 1332                                         -Number of policyhoders in the current                                                                                            view
-###### % Smokers / % Diabetic                 - 21% / 48%                                   - Prevalence of the two health risk flags                                                                                          in the book
+The test set was also used to choose the polynomial degree and the winning model, so these scores are likely somewhat optimistic. The split has no fixed random seed, so a new run will give different numbers.
 
-### What the segment charts show
--	Smoker vs. non-smoker average claim: $32K vs. $8K - a 4x gap. This is the strongest single lever in the whole dataset.
--	Diabetic vs. non-diabetic average claim: $13.4K vs. $13.2K - essentially flat. Worth a second look before treating diabetic status as a standalone pricing factor (see Section 4).
--	BMI category: the book skews heavy - 702 obese, 387 overweight, 223 normal, 20 underweight policyholders - which matters for how representative this model will be if the population shifts.
+## Prediction app
 
-<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/498740b8-96cc-40b3-9fba-1c49fa0bef4f" /> 
+<p align="center">
+  <img src="images/app-form.png" alt="Streamlit form for entering policyholder details" width="700">
+</p>
 
--	Claim by region: Southeast leads at $5.8M, followed by Northwest ($4.1M), Southwest ($4.0M), and Northeast ($3.9M) - driven mainly by how many policyholders are in each region, not by a materially different average cost per person.
-	
-<img width="2000" height="1124" alt="imagen" src="https://github.com/user-attachments/assets/1b4b4254-81ad-4de2-970c-4e21fd0e7c1a" />
+The screenshots and video show an app version that also asks for `region`. The code for that version is not published here.
 
--	Claim by age group: 31-45 carries the most total claims ($7.3M), simply because it's the largest age band in this book, not because that age group costs more per person.
-	
+[Download the demo video](demo/app-demo.mp4)
 
+<details>
+<summary>Input fields and prediction steps</summary>
 
+![App input fields and allowed ranges](images/app-inputs.png)
 
-## [FEATURE ENGINEERING & PREDICTIVE MODELING](#feature-engineering-&-predictive-modeling) 
-This part covers turning that understanding into a model that predicts claim cost, and packaging that model into an application a non-technical user can actually operate. As with the earlier documents, every choice below has a stated reason  nothing here was done just because it's the default setting.
-#### Choosing the features
-Eight fields go into the model: age, gender, BMI, blood pressure, diabetic status, number of children, smoker status, and region. The record ID was excluded — it identifies a row, it doesn't describe a policyholder, so including it would let the model “learn” meaningless noise tied to row order.
-#### Encoding the categorical fields
-Models need numbers, not text, so every category had to be converted - but not all in the same way, because the fields aren't all the same kind of category.
-One detail worth explaining for the non-technical reader: one-hot encoding for region creates a separate 0/1 column per region, but one region (Northeast) was deliberately left out of the final feature set. This is standard practice, not an oversight - if all four region columns were included, they would always add up to exactly 1, which creates a redundancy that confuses some models. Dropping one column loses no information: a policyholder who is 0 in Northwest, Southeast, and Southwest is understood to be in Northeast by elimination.
+![Steps from user input to predicted claim](images/prediction-steps.png)
 
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/bc036d682e8f30aa64a125afd095fa36ba813fd2/folder/encoding%20strategy.png)
-#### Engineering two interaction features
-The exploratory analysis in section 2 found that smoking status and BMI both affect claims, and that flexible models like Random Forest and XGBoost can detect combined effects (e.g., “smoking matters more at higher BMI”) on their own. Straight-line models like Linear and Polynomial Regression cannot discover that kind of interaction by themselves - they need it handed to them as an explicit input. So two new features were built specifically for the linear-family models:
--	smoker × bmi - lets a linear model represent “being a smoker matters differently depending on BMI” rather than treating the two as fully independent effects
--	diabetic × bmi - same logic, applied to diabetic status and BMI
+</details>
 
- #### Splitting the data - and why it's a three-way split
-The 1,332 cleaned records were split three ways: 60% for training (798 rows), 20% for validation (267 rows), and 20% for final testing (267 rows), using a fixed random seed (42) so the split is reproducible
- #### Why not just train/test?
- A simple two-way split tempts an analyst into repeatedly checking test-set performance while tuning a model — and every time you adjust a model based on test results, the test set stops being a fair, untouched judge of real-world performance. The validation set is where all the tuning and model-picking decisions happen. The test set is opened exactly once, at the very end, purely to report a final, honest number. This is standard practice for any model whose results will inform real financial decisions.
-#### Scaling the numeric fields
-Age, BMI, blood pressure, and number of children were standardized (rescaled to a common range) using a scaler fit only on the training data, then applied unchanged to the validation and test sets. Fitting the scaler on training data only - rather than on the whole dataset before splitting - prevents information from the validation and test sets from quietly leaking into training, which would make the model look better than it really is. One model (Support Vector Regression) also required the target value itself to be scaled, since that algorithm is sensitive to the size of the numbers it's predicting; its predictions were converted back into real dollar amounts before being scored, so its reported accuracy is on the same footing as every other model.
-#### Training and comparing five models
-Five modeling approaches were trained and tuned, each searched over a grid of settings using 5-fold cross-validation on the training data, then compared on the untouched validation set:
+## Repository structure
 
-#### ![Comparing the models](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/main/folder/Testing_comparing_validation.pdf)
+```text
+├── demo/       App walkthrough video
+├── images/     Dashboard and app screenshots
+├── notebooks/  Python analysis (HTML export)
+├── reports/    Business request, summary and technical PDFs
+├── README.md
+└── requirements.txt
+```
 
-#### The validation leader - where the winner was picked
-XGBoost had the best validation R² (0.79) and the lowest average error, and its 5-fold cross-validation score (0.80) was consistent with its validation performance — a good sign it isn't just a lucky split. XGBoost was selected as the production model.
+## Limitations and next steps
 
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4631e3001ae7550d4da199115427382e89c58f9b/folder/validation.png)
+- Some PDF reports and the model dashboard quote a different modeling run (test R² 0.83, with region and a validation split). Use the notebook figures above until they are aligned.
+- Add a validation set and a fixed random seed.
+- Fix the regional smoker-rate chart in the notebook: it compares against `"yes"`, but the data uses `"Yes"`, so it shows 0%.
+- Publish the app code, saved model files, dataset and Power BI file.
 
-#### The test result
-The model explains about 83% of why claim amounts differ from one policyholder to the next, and its typical prediction is within roughly $3,751 of the actual claim. As documented  in the Visualization & Analytics section of the master report, this accuracy isn't evenly spread - the model is more likely to under-predict than over-predict, particularly for high-cost policyholders.
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/30495fb906675db86a9e441777ebebd28c50f3d8/folder/final%20test.png)
+## Author
 
-## Prediction Dashboard
-
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4489bf5bb694f933c60ee3ef32bd043b0e3b93d4/folder/dashboard%20predict.png)
-
-
-#### Preview Quary
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/9ab9294ee53c49c8b20d580a33317dd9ea831d4a/folder/eng%20code%201.png)
-
-##  [PREDICTION APP](#prediction-app)
-### Turning the model into a usable tool App
-The final deliverable is a small web application that lets someone with no data science background enter a policyholder's details and get a claim estimate. It's built with Streamlit, a Python framework designed specifically for turning a script into an interactive web page without writing any HTML, CSS, or JavaScript.
-#### Libraries used, and what each one is for
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/605631dba20d76c4cd405d261c7cd1c08abdd3b6/folder/Table_App_Libraries1.png)
-## What the interface looks like 
-![preview app](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/499d6ad0d2d6bccd569add6ae277701a7530d073/folder/Modern%20%20Redesign.png)
-
-### [Download The App Video](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/788b9dbcfe479288bdfa71e3bd556966e7d5e3e0/folder/mp4.mp4)
-The page opens with a title and a one-line instruction, followed by a single form split into two columns so every field is visible without scrolling
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/3725f59f23e6b00bbb31b26bb2d164c52d29d421/folder/Table_App_Input_Fields1.png)
-Every range is capped to what the model actually learned from - the app won't accept a BMI of 5 or a fifth region, because the model has no reliable basis for predicting outside the data it was trained on. That's a deliberate safety rail, not a missing feature.
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/9e3407854432e5fc81539f3877022fc6ed080fd4/folder/Table_Prediction_Steps1.png)
-#### Why this app matters
--	Removes the bottleneck of a non-technical user needing an analyst to run a one-off prediction - the original business request's central ask.
--	Keeps every prediction consistent with how the model was trained, because it reuses the exact saved encoders and scaler rather than re-implementing that logic by hand.
--	Gives a realistic range, not false precision, which is more useful and more honest for a business decision than a bare number.
--	Runs on a lightweight, widely-used stack (Streamlit + pandas + numpy + joblib), which keeps it easy for another analyst to maintain or extend.
-
-  #### Preview Query.
-  ![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/f6c746484eb3a0b80beac9d1d5137623869efe4b/folder/eng%20code.jpg)
-
-## [RECOMMENDATIONS](#recommendations)
-The table below show the business inights,recommendation ,reasons and department responsible 
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/032083a833c5647d663a8d10981e8a06de60d8f1/folder/recommendation.png)
-##  [NEXT STEPS](#next-steps)
-![image alt](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/f75501352853b75edc072596436ee2c9dc5745a0/folder/next%20line.png)
-
-## [APPENDIX](#appendix)
-#### Data dictionary
-#### [View Table Dictionary](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/4e3e72684aa6dffa27ede528670f013181794101/folder/Appendix_Table_Data_Dictionary.pdf)
-#### Correlation of numeric fields with claim amount
-Added after the deeper exploratory-analysis pass (see the EDA technical documentation for the full heatmap). This ranks the numeric predictors by linear relationship strength with claim amount, independent of the modeling algorithm used.
-[Preview Correlation Here](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/946966d91ff524f25d2ac2d3233a881e999ff9af/folder/Appendix_Table_Correlation_with_Claim_Amount.pdf)
-#### Saved artifacts (what powers the app)
-[Saved Files](https://github.com/bryan405/Insurance-Claim-Intelligence-End-to-End-Analysis-Machine-Learning-Prediction/blob/1c2ba1a6f10f39f92c37ef46ae84d301801b0870/folder/Appendix_Table_Saved_Artifacts.pdf)
-#### Companion documents
-This report is the document sets produced for this project. Alongside the 9-part master report you're reading now, a separate three-part technical documentation set covers the underlying analysis in full code-level detail, for anyone who needs to reproduce, audit, or extend the work:
--	Part 1 - Data Cleaning & Preparation: duplicate and missing-value checks, and the reasoning behind each decision
--	Part 2 - Exploratory Data Analysis and power bi dax calculation: every chart behind the findings in this report, including the correlation heatmap 
--	Part 3 - Feature Engineering, Predictive Modeling & the Application: encoding choices, the full model leaderboard, and a step-by-step walkthrough of the prediction app.
--	part 4 - Recommendation,answers the business questions and next line of action.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Emeka Victor Agbo** · [GitHub](https://github.com/bryan405)
