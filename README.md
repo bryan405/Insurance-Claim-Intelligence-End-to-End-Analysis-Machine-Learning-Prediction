@@ -32,7 +32,6 @@ End-to-end analysis and machine learning prediction of health insurance claim co
 
 ## Business problem
 
-> This is a practice project. Valuelink is a fictional company name used for the business scenario.
 
 Claims data was reviewed manually, with no central reporting. Teams pulled separate cuts and reached inconsistent figures. The goal was a governed dataset, a self-service dashboard, a predictive model and a tool for non-technical users.
 
